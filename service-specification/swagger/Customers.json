@@ -1,0 +1,850 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "QCar-Customers",
+    "description": "TODO: Add Description",
+    "license": {
+      "name": "MIT",
+      "url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+    }
+  },
+  "host": "localhost:8080",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/customers": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Find All",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "CustomersGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/customers",
+              "headers": {
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MTc1MTQ3LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.cfDl54r40VQB66NXXR1i2YUI9RFyjI4vj9DlgPN69ls"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Find All",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "put": {
+        "description": "TODO: Add Description",
+        "summary": "Update",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "CustomersPut",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "PUT",
+              "uri": "/customers",
+              "headers": {
+                "Content-Type": "application/json",
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MTc1MTQ3LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.cfDl54r40VQB66NXXR1i2YUI9RFyjI4vj9DlgPN69ls"
+              },
+              "body": "{\n        \"id\": 1,\n        \"updatedBy\": 20,\n        \"clientInfo\": {\n            \"uri\": \"http://localhost:8080/api/customers\",\n            \"agent\": \"PostmanRuntime/7.1.1\",\n            \"method\": \"POST\",\n            \"clientIp\": \"0:0:0:0:0:0:0:1\",\n            \"clientPort\": 49690\n        },\n        \"updatedOn\": 1515157800416,\n        \"fullName\": \"محمودssss الجديد\",\n        \"city\": 2,\n        \"homeAddress\": null,\n        \"homeLocation\": null,\n        \"currentLocation\": null,\n        \"mobileNumber1\": \"+22222\",\n        \"mobileNumber2\": null,\n        \"homePhoneNumber\": null,\n        \"notes\": \"sssss\",\n        \"status\": true,\n        \"inTrip\": false,\n        \"rating\": 2,\n        \"credit\": 12\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Update",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Save",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "CustomersPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SaveRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/customers",
+              "headers": {
+                "Content-Type": "application/json",
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MjY3NzYyLCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjowfQ.E0CkuEb12HlG6hDF0gP_2CZi4GiY_lpfTej-BkBeesE"
+              },
+              "body": "{\"fullName\":\"محمود الجديد\",\"city\":2,\"homeAddress\":null,\"homeLocation\":null,\"currentLocation\":null,\"mobileNumber1\":\"+22222\",\"mobileNumber2\":null,\"homePhoneNumber\":null,\"notes\":\"sssss\",\"status\":true,\"inTrip\":false,\"rating\":2,\"credit\":12}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Save",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/drivers/1/customers": {
+      "put": {
+        "description": "TODO: Add Description",
+        "summary": "Activate",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Drivers1CustomersPut",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ActivateRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "PUT",
+              "uri": "/drivers/1/customers",
+              "headers": {
+                "Content-Type": "application/json",
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MDE3MzY4LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.uzPM_PVSrh5pS1kbDAHRT-mLeex6L7YSR2gWF8I8CmI"
+              },
+              "body": "{\n        \"id\": 2,\n        \"updatedBy\": 20,\n        \"clientInfo\": {\n            \"uri\": \"http://localhost:8080/api/drivers\",\n            \"agent\": \"PostmanRuntime/7.1.1\",\n            \"method\": \"POST\",\n            \"clientIp\": \"0:0:0:0:0:0:0:1\",\n            \"clientPort\": 65219\n        },\n        \"updatedOn\": 1514913547026,\n        \"fullName\": \"آحمد خميسsss\",\n        \"city\": 5,\n        \"homeLocation\": {\"coordinates\":[44.3,443]},\n        \"currentLocation\": {\"coordinates\":[29.3132742,30.85709780000002]},\n        \"mobileNumber1\": \"+20109ss9000\",\n        \"mobileNumber2\": \"+201099000\",\n        \"homePhoneNumber\": null,\n        \"notes\": \"آحمد خميس عبل العيسس\",\n        \"status\": true,\n        \"online\": false,\n        \"rating\": null,\n        \"idNumber\": null,\n        \"licenseNumber\": null,\n        \"carLicenseNumber\": null,\n        \"carPlateNumber\": null,\n        \"carLicenseExpiryDate\": null,\n        \"carLicenseCity\": null,\n        \"birthDate\": null,\n        \"credit\": null\n    }"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Activate",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/customers/id/2": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Find By Id",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "CustomersId2Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/customers/id/2",
+              "headers": {
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MTc1MTQ3LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.cfDl54r40VQB66NXXR1i2YUI9RFyjI4vj9DlgPN69ls"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Find By Id",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    }
+  },
+  "definitions": {
+    "SaveRequest": {
+      "title": "SaveRequest",
+      "example": {
+        "fullName": "محمود الجديد",
+        "city": 2,
+        "homeAddress": null,
+        "homeLocation": null,
+        "currentLocation": null,
+        "mobileNumber1": "+22222",
+        "mobileNumber2": null,
+        "homePhoneNumber": null,
+        "notes": "sssss",
+        "status": true,
+        "inTrip": false,
+        "rating": 2,
+        "credit": 12
+      },
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "description": "",
+          "example": "محمود الجديد",
+          "type": "string"
+        },
+        "city": {
+          "description": "",
+          "example": 2,
+          "type": "integer",
+          "format": "int32"
+        },
+        "homeAddress": {
+          "description": ""
+        },
+        "homeLocation": {
+          "description": ""
+        },
+        "currentLocation": {
+          "description": ""
+        },
+        "mobileNumber1": {
+          "description": "",
+          "example": "+22222",
+          "type": "string"
+        },
+        "mobileNumber2": {
+          "description": ""
+        },
+        "homePhoneNumber": {
+          "description": ""
+        },
+        "notes": {
+          "description": "",
+          "example": "sssss",
+          "type": "string"
+        },
+        "status": {
+          "description": "",
+          "example": true,
+          "type": "boolean"
+        },
+        "inTrip": {
+          "description": "",
+          "example": false,
+          "type": "boolean"
+        },
+        "rating": {
+          "description": "",
+          "example": 2,
+          "type": "integer",
+          "format": "int32"
+        },
+        "credit": {
+          "description": "",
+          "example": 12,
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "fullName",
+        "city",
+        "homeAddress",
+        "homeLocation",
+        "currentLocation",
+        "mobileNumber1",
+        "mobileNumber2",
+        "homePhoneNumber",
+        "notes",
+        "status",
+        "inTrip",
+        "rating",
+        "credit"
+      ]
+    },
+    "ActivateRequest": {
+      "title": "ActivateRequest",
+      "example": {
+        "id": 2,
+        "updatedBy": 20,
+        "clientInfo": {
+          "uri": "http://localhost:8080/api/drivers",
+          "agent": "PostmanRuntime/7.1.1",
+          "method": "POST",
+          "clientIp": "0:0:0:0:0:0:0:1",
+          "clientPort": 65219
+        },
+        "updatedOn": 1514913547026,
+        "fullName": "آحمد خميسsss",
+        "city": 5,
+        "homeLocation": {
+          "coordinates": [
+            44.3,
+            443
+          ]
+        },
+        "currentLocation": {
+          "coordinates": [
+            29.3132742,
+            30.85709780000002
+          ]
+        },
+        "mobileNumber1": "+20109ss9000",
+        "mobileNumber2": "+201099000",
+        "homePhoneNumber": null,
+        "notes": "آحمد خميس عبل العيسس",
+        "status": true,
+        "online": false,
+        "rating": null,
+        "idNumber": null,
+        "licenseNumber": null,
+        "carLicenseNumber": null,
+        "carPlateNumber": null,
+        "carLicenseExpiryDate": null,
+        "carLicenseCity": null,
+        "birthDate": null,
+        "credit": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": 2,
+          "type": "integer",
+          "format": "int32"
+        },
+        "updatedBy": {
+          "description": "",
+          "example": 20,
+          "type": "integer",
+          "format": "int32"
+        },
+        "clientInfo": {
+          "$ref": "#/definitions/ClientInfo"
+        },
+        "updatedOn": {
+          "description": "",
+          "example": 1514913547026,
+          "type": "integer",
+          "format": "int64"
+        },
+        "fullName": {
+          "description": "",
+          "example": "آحمد خميسsss",
+          "type": "string"
+        },
+        "city": {
+          "description": "",
+          "example": 5,
+          "type": "integer",
+          "format": "int32"
+        },
+        "homeLocation": {
+          "$ref": "#/definitions/HomeLocation"
+        },
+        "currentLocation": {
+          "$ref": "#/definitions/CurrentLocation"
+        },
+        "mobileNumber1": {
+          "description": "",
+          "example": "+20109ss9000",
+          "type": "string"
+        },
+        "mobileNumber2": {
+          "description": "",
+          "example": "+201099000",
+          "type": "string"
+        },
+        "homePhoneNumber": {
+          "description": ""
+        },
+        "notes": {
+          "description": "",
+          "example": "آحمد خميس عبل العيسس",
+          "type": "string"
+        },
+        "status": {
+          "description": "",
+          "example": true,
+          "type": "boolean"
+        },
+        "online": {
+          "description": "",
+          "example": false,
+          "type": "boolean"
+        },
+        "rating": {
+          "description": ""
+        },
+        "idNumber": {
+          "description": ""
+        },
+        "licenseNumber": {
+          "description": ""
+        },
+        "carLicenseNumber": {
+          "description": ""
+        },
+        "carPlateNumber": {
+          "description": ""
+        },
+        "carLicenseExpiryDate": {
+          "description": ""
+        },
+        "carLicenseCity": {
+          "description": ""
+        },
+        "birthDate": {
+          "description": ""
+        },
+        "credit": {
+          "description": ""
+        }
+      },
+      "required": [
+        "id",
+        "updatedBy",
+        "clientInfo",
+        "updatedOn",
+        "fullName",
+        "city",
+        "homeLocation",
+        "currentLocation",
+        "mobileNumber1",
+        "mobileNumber2",
+        "homePhoneNumber",
+        "notes",
+        "status",
+        "online",
+        "rating",
+        "idNumber",
+        "licenseNumber",
+        "carLicenseNumber",
+        "carPlateNumber",
+        "carLicenseExpiryDate",
+        "carLicenseCity",
+        "birthDate",
+        "credit"
+      ]
+    },
+    "ClientInfo": {
+      "title": "ClientInfo",
+      "example": {
+        "uri": "http://localhost:8080/api/drivers",
+        "agent": "PostmanRuntime/7.1.1",
+        "method": "POST",
+        "clientIp": "0:0:0:0:0:0:0:1",
+        "clientPort": 65219
+      },
+      "type": "object",
+      "properties": {
+        "uri": {
+          "description": "",
+          "example": "http://localhost:8080/api/drivers",
+          "type": "string"
+        },
+        "agent": {
+          "description": "",
+          "example": "PostmanRuntime/7.1.1",
+          "type": "string"
+        },
+        "method": {
+          "description": "",
+          "example": "POST",
+          "type": "string"
+        },
+        "clientIp": {
+          "description": "",
+          "example": "0:0:0:0:0:0:0:1",
+          "type": "string"
+        },
+        "clientPort": {
+          "description": "",
+          "example": 65219,
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "uri",
+        "agent",
+        "method",
+        "clientIp",
+        "clientPort"
+      ]
+    },
+    "HomeLocation": {
+      "title": "HomeLocation",
+      "example": {
+        "coordinates": [
+          44.3,
+          443
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "coordinates": {
+          "description": "",
+          "example": [
+            44.3,
+            443
+          ],
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "required": [
+        "coordinates"
+      ]
+    },
+    "CurrentLocation": {
+      "title": "CurrentLocation",
+      "example": {
+        "coordinates": [
+          29.3132742,
+          30.85709780000002
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "coordinates": {
+          "description": "",
+          "example": [
+            29.3132742,
+            30.85709780000002
+          ],
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "required": [
+        "coordinates"
+      ]
+    },
+    "UpdateRequest": {
+      "title": "UpdateRequest",
+      "example": {
+        "id": 1,
+        "updatedBy": 20,
+        "clientInfo": {
+          "uri": "http://localhost:8080/api/customers",
+          "agent": "PostmanRuntime/7.1.1",
+          "method": "POST",
+          "clientIp": "0:0:0:0:0:0:0:1",
+          "clientPort": 49690
+        },
+        "updatedOn": 1515157800416,
+        "fullName": "محمودssss الجديد",
+        "city": 2,
+        "homeAddress": null,
+        "homeLocation": null,
+        "currentLocation": null,
+        "mobileNumber1": "+22222",
+        "mobileNumber2": null,
+        "homePhoneNumber": null,
+        "notes": "sssss",
+        "status": true,
+        "inTrip": false,
+        "rating": 2,
+        "credit": 12
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": 1,
+          "type": "integer",
+          "format": "int32"
+        },
+        "updatedBy": {
+          "description": "",
+          "example": 20,
+          "type": "integer",
+          "format": "int32"
+        },
+        "clientInfo": {
+          "$ref": "#/definitions/ClientInfo"
+        },
+        "updatedOn": {
+          "description": "",
+          "example": 1515157800416,
+          "type": "integer",
+          "format": "int64"
+        },
+        "fullName": {
+          "description": "",
+          "example": "محمودssss الجديد",
+          "type": "string"
+        },
+        "city": {
+          "description": "",
+          "example": 2,
+          "type": "integer",
+          "format": "int32"
+        },
+        "homeAddress": {
+          "description": ""
+        },
+        "homeLocation": {
+          "description": ""
+        },
+        "currentLocation": {
+          "description": ""
+        },
+        "mobileNumber1": {
+          "description": "",
+          "example": "+22222",
+          "type": "string"
+        },
+        "mobileNumber2": {
+          "description": ""
+        },
+        "homePhoneNumber": {
+          "description": ""
+        },
+        "notes": {
+          "description": "",
+          "example": "sssss",
+          "type": "string"
+        },
+        "status": {
+          "description": "",
+          "example": true,
+          "type": "boolean"
+        },
+        "inTrip": {
+          "description": "",
+          "example": false,
+          "type": "boolean"
+        },
+        "rating": {
+          "description": "",
+          "example": 2,
+          "type": "integer",
+          "format": "int32"
+        },
+        "credit": {
+          "description": "",
+          "example": 12,
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "id",
+        "updatedBy",
+        "clientInfo",
+        "updatedOn",
+        "fullName",
+        "city",
+        "homeAddress",
+        "homeLocation",
+        "currentLocation",
+        "mobileNumber1",
+        "mobileNumber2",
+        "homePhoneNumber",
+        "notes",
+        "status",
+        "inTrip",
+        "rating",
+        "credit"
+      ]
+    }
+  }
+}

@@ -1,0 +1,866 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "QCar-Users",
+    "description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+    "license": {
+      "name": "MIT",
+      "url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+    }
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/login": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Login",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "LoginPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/LoginRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/login",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\"userName\":\"bmind\",\"password\":\"123\"}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Login",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/api/users/password/reset": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Change Password",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ApiUsersPasswordResetPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ChangePasswordrequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/api/users/password/reset",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\"userName\":\"bmind\",\"newPassword\":\"sss\",\"oldPassword\":\"sss\"}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Change Password",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/api/users": {
+      "put": {
+        "description": "TODO: Add Description",
+        "summary": "Update",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ApiUsersPut",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "PUT",
+              "uri": "/api/users",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\n        \"id\": 20,\n        \"updatedBy\": null,\n        \"clientInfo\": null,\n        \"updatedOn\": 1514755111533,\n        \"userName\": \"آحمد خميسsss\",\n        \"password\": \"sss\",\n        \"status\": true,\n        \"userType\": null,\n        \"loginName\": \"bmind\",\n        \"currentlyLogined\": null,\n        \"permissionList\": []\n    }"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Update",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Save",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ApiUsersPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SaveRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/api/users",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\"userName\":\"آحمد خميسsss\",\n\"loginName\":\"bmindssy\",\n\"password\":\"pass\"\n,\"status\":true,\n\"userType\":1\n}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Save",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/api/users/sss/ddd/dd/sss": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Hash",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ApiUsersSssDddDdSssGet2",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/api/users/sss/ddd/dd/sss",
+              "headers": {
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE0ODUxNjc0LCJuYW1lIjoiYm1pbmQiLCJwZXJtaXNzaW9ucyI6MH0.k26QGnvXz9zV27NCizNtCzC4_OFmYesqgHIKXhocFt0"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Hash",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/api/users/id/1": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Find By Id",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ApiUsersId1Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/api/users/id/1",
+              "headers": {
+                "Content-Type": "application/json; charset=utf-8"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Find By Id",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "delete": {
+        "description": "TODO: Add Description",
+        "summary": "Delete Id",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ApiUsersId1Delete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DeleteIdrequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "DELETE",
+              "uri": "/api/users/id/1",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\"userName\":\"bmind\",\"password\":\"sss\"}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Delete Id",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/api/users/login/bmind": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Find By Domain",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ApiUsersLoginBmindGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/api/users/login/bmind",
+              "headers": {
+                "Content-Type": "application/json; charset=utf-8"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Find By Domain",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/api/users/permissions": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Find All Permissions",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ApiUsersPermissionsGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/api/users/permissions",
+              "headers": {
+                "Content-Type": "application/json; charset=utf-8"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Find All Permissions",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/api/users/bulk": {
+      "delete": {
+        "description": "TODO: Add Description",
+        "summary": "Delete Bulk",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ApiUsersBulkDelete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "DELETE",
+              "uri": "/api/users/bulk",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "[1,2]"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Delete Bulk",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    }
+  },
+  "definitions": {
+    "LoginRequest": {
+      "title": "LoginRequest",
+      "example": {
+        "userName": "bmind",
+        "password": "123"
+      },
+      "type": "object",
+      "properties": {
+        "userName": {
+          "description": "",
+          "example": "bmind",
+          "type": "string"
+        },
+        "password": {
+          "description": "",
+          "example": "123",
+          "type": "string"
+        }
+      },
+      "required": [
+        "userName",
+        "password"
+      ]
+    },
+    "ChangePasswordrequest": {
+      "title": "Change PasswordRequest",
+      "example": {
+        "userName": "bmind",
+        "newPassword": "sss",
+        "oldPassword": "sss"
+      },
+      "type": "object",
+      "properties": {
+        "userName": {
+          "description": "",
+          "example": "bmind",
+          "type": "string"
+        },
+        "newPassword": {
+          "description": "",
+          "example": "sss",
+          "type": "string"
+        },
+        "oldPassword": {
+          "description": "",
+          "example": "sss",
+          "type": "string"
+        }
+      },
+      "required": [
+        "userName",
+        "newPassword",
+        "oldPassword"
+      ]
+    },
+    "SaveRequest": {
+      "title": "SaveRequest",
+      "example": {
+        "userName": "آحمد خميسsss",
+        "loginName": "bmindssy",
+        "password": "pass",
+        "status": true,
+        "userType": 1
+      },
+      "type": "object",
+      "properties": {
+        "userName": {
+          "description": "",
+          "example": "آحمد خميسsss",
+          "type": "string"
+        },
+        "loginName": {
+          "description": "",
+          "example": "bmindssy",
+          "type": "string"
+        },
+        "password": {
+          "description": "",
+          "example": "pass",
+          "type": "string"
+        },
+        "status": {
+          "description": "",
+          "example": true,
+          "type": "boolean"
+        },
+        "userType": {
+          "description": "",
+          "example": 1,
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "userName",
+        "loginName",
+        "password",
+        "status",
+        "userType"
+      ]
+    },
+    "UpdateRequest": {
+      "title": "UpdateRequest",
+      "example": {
+        "id": 20,
+        "updatedBy": null,
+        "clientInfo": null,
+        "updatedOn": 1514755111533,
+        "userName": "آحمد خميسsss",
+        "password": "sss",
+        "status": true,
+        "userType": null,
+        "loginName": "bmind",
+        "currentlyLogined": null,
+        "permissionList": []
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": 20,
+          "type": "integer",
+          "format": "int32"
+        },
+        "updatedBy": {
+          "description": ""
+        },
+        "clientInfo": {
+          "description": ""
+        },
+        "updatedOn": {
+          "description": "",
+          "example": 1514755111533,
+          "type": "integer",
+          "format": "int64"
+        },
+        "userName": {
+          "description": "",
+          "example": "آحمد خميسsss",
+          "type": "string"
+        },
+        "password": {
+          "description": "",
+          "example": "sss",
+          "type": "string"
+        },
+        "status": {
+          "description": "",
+          "example": true,
+          "type": "boolean"
+        },
+        "userType": {
+          "description": ""
+        },
+        "loginName": {
+          "description": "",
+          "example": "bmind",
+          "type": "string"
+        },
+        "currentlyLogined": {
+          "description": ""
+        },
+        "permissionList": {
+          "description": "",
+          "example": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "updatedBy",
+        "clientInfo",
+        "updatedOn",
+        "userName",
+        "password",
+        "status",
+        "userType",
+        "loginName",
+        "currentlyLogined",
+        "permissionList"
+      ]
+    },
+    "DeleteIdrequest": {
+      "title": "Delete IdRequest",
+      "example": {
+        "userName": "bmind",
+        "password": "sss"
+      },
+      "type": "object",
+      "properties": {
+        "userName": {
+          "description": "",
+          "example": "bmind",
+          "type": "string"
+        },
+        "password": {
+          "description": "",
+          "example": "sss",
+          "type": "string"
+        }
+      },
+      "required": [
+        "userName",
+        "password"
+      ]
+    }
+  }
+}

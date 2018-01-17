@@ -1,0 +1,346 @@
+{
+	"info": {
+		"name": "QCar-Users",
+		"_postman_id": "a8594387-9d37-e746-7dbe-1e5bf85fd3f1",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userName\":\"bmind\",\"password\":\"123\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userName\":\"bmind\",\"newPassword\":\"sss\",\"oldPassword\":\"sss\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/password/reset",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"password",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userName\":\"آحمد خميسsss\",\n\"loginName\":\"bmindssy\",\n\"password\":\"pass\"\n,\"status\":true,\n\"userType\":1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 20,\n        \"updatedBy\": null,\n        \"clientInfo\": null,\n        \"updatedOn\": 1514755111533,\n        \"userName\": \"آحمد خميسsss\",\n        \"password\": \"sss\",\n        \"status\": true,\n        \"userType\": null,\n        \"loginName\": \"bmind\",\n        \"currentlyLogined\": null,\n        \"permissionList\": []\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find All",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "q-car-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE0ODUxNjc0LCJuYW1lIjoiYm1pbmQiLCJwZXJtaXNzaW9ucyI6MH0.k26QGnvXz9zV27NCizNtCzC4_OFmYesqgHIKXhocFt0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{    \n        \"id\": 7,\n        \"updatedBy\": null,\n        \"clientInfo\": null,\n        \"updatedOn\": 1514667501822,\n        \"userName\": \"محم،د\",\n        \"password\": \"sss\",\n        \"status\": null,\n        \"mongoId\": \"5a47fded094cda105fc98529\",\n        \"userType\": null,\n        \"loginName\": \"bmind2222\",\n        \"currentlyLogined\": true,\n        \"permissionList\": []\n       \n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/sss/ddd/dd/sss",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"sss",
+						"ddd",
+						"dd",
+						"sss"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hash",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "q-car-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE0ODUxNjc0LCJuYW1lIjoiYm1pbmQiLCJwZXJtaXNzaW9ucyI6MH0.k26QGnvXz9zV27NCizNtCzC4_OFmYesqgHIKXhocFt0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{    \n        \"id\": 7,\n        \"updatedBy\": null,\n        \"clientInfo\": null,\n        \"updatedOn\": 1514667501822,\n        \"userName\": \"محم،د\",\n        \"password\": \"sss\",\n        \"status\": null,\n        \"mongoId\": \"5a47fded094cda105fc98529\",\n        \"userType\": null,\n        \"loginName\": \"bmind2222\",\n        \"currentlyLogined\": true,\n        \"permissionList\": []\n       \n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/sss/ddd/dd/sss",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"sss",
+						"ddd",
+						"dd",
+						"sss"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find By Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userName\":\"bmind\",\"password\":\"sss\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/id/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find By Domain",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userName\":\"bmind\",\"password\":\"sss\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/login/bmind",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"login",
+						"bmind"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find All Permissions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userName\":\"bmind\",\"password\":\"sss\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/permissions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"permissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userName\":\"bmind\",\"password\":\"sss\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/id/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Bulk",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[1,2]"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/bulk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"bulk"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

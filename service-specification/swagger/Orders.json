@@ -1,0 +1,364 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "QCar-Orders",
+    "description": "TODO: Add Description",
+    "license": {
+      "name": "MIT",
+      "url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+    }
+  },
+  "host": "localhost:8080",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/orders": {
+      "post": {
+        "summary": "Save",
+        "operationId": "OrdersPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SaveRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/orders",
+              "headers": {
+                "Content-Type": "application/json",
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MjY3NzYyLCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjowfQ.E0CkuEb12HlG6hDF0gP_2CZi4GiY_lpfTej-BkBeesE"
+              },
+              "body": "{\n\t\t\"orderLocation\":null,\n\t\t\"fromLocation\":null,\n\t\t\"toLocation\":null,\n\t\t\"orderTime\":null,\n\t\t\"tripStartTime\":null,\n\t\t\"tripEndTime\":null,\n\t\t\"notes\":\"ملاحظات جديده\"\n\t\t,\"paymentMethod\":0,\n\t\t\"status\":true,\n\t\t\"customer\":{\n\t\t\t\n        \"id\": 1\n\t\t\t\n\t\t}\n\t\n}\n"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Save"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/orders/order-num/2018000014": {
+      "get": {
+        "summary": "Find By Order Number",
+        "operationId": "OrdersOrderNum2018000014Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/orders/order-num/2018000014",
+              "headers": {
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MjY3NzYyLCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjowfQ.E0CkuEb12HlG6hDF0gP_2CZi4GiY_lpfTej-BkBeesE"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Find By Order Number"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/orders/criteria": {
+      "get": {
+        "summary": "Find By Criteria",
+        "operationId": "OrdersCriteriaGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "fromLat",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "fromLng",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "fromRange",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/orders/criteria?fromLat=0&fromLng=0&fromRange=0",
+              "headers": {
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1NTI1Njk0LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjowfQ.HSLuaTIguvCooDOEl22rhB3ofzAVBlfsHlh1WIKz33U"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Find By Criteria"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/orders/id/1": {
+      "get": {
+        "summary": "Find By Id",
+        "operationId": "OrdersId1Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/orders/id/1",
+              "headers": {
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MjY3NzYyLCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjowfQ.E0CkuEb12HlG6hDF0gP_2CZi4GiY_lpfTej-BkBeesE"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Find By Id"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    }
+  },
+  "definitions": {
+    "SaveRequest": {
+      "title": "SaveRequest",
+      "example": {
+        "orderLocation": null,
+        "fromLocation": null,
+        "toLocation": null,
+        "orderTime": null,
+        "tripStartTime": null,
+        "tripEndTime": null,
+        "notes": "ملاحظات جديده",
+        "paymentMethod": 0,
+        "status": true,
+        "customer": {
+          "id": 1
+        }
+      },
+      "type": "object",
+      "properties": {
+        "orderLocation": {
+          "description": ""
+        },
+        "fromLocation": {
+          "description": ""
+        },
+        "toLocation": {
+          "description": ""
+        },
+        "orderTime": {
+          "description": ""
+        },
+        "tripStartTime": {
+          "description": ""
+        },
+        "tripEndTime": {
+          "description": ""
+        },
+        "notes": {
+          "description": "",
+          "example": "ملاحظات جديده",
+          "type": "string"
+        },
+        "paymentMethod": {
+          "description": "",
+          "example": 0,
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "description": "",
+          "example": true,
+          "type": "boolean"
+        },
+        "customer": {
+          "$ref": "#/definitions/Customer"
+        }
+      },
+      "required": [
+        "orderLocation",
+        "fromLocation",
+        "toLocation",
+        "orderTime",
+        "tripStartTime",
+        "tripEndTime",
+        "notes",
+        "paymentMethod",
+        "status",
+        "customer"
+      ]
+    },
+    "Customer": {
+      "title": "Customer",
+      "example": {
+        "id": 1
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": 1,
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  }
+}

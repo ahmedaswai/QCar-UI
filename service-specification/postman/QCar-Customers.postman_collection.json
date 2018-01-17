@@ -1,0 +1,171 @@
+{
+	"info": {
+		"name": "QCar-Customers",
+		"_postman_id": "6ac11588-29c5-c8cd-e7a3-f9277490636b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Find All",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "q-car-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MTc1MTQ3LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.cfDl54r40VQB66NXXR1i2YUI9RFyjI4vj9DlgPN69ls"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{    \n        \"id\": 7,\n        \"updatedBy\": null,\n        \"clientInfo\": null,\n        \"updatedOn\": 1514667501822,\n        \"userName\": \"محم،د\",\n        \"password\": \"sss\",\n        \"status\": null,\n        \"mongoId\": \"5a47fded094cda105fc98529\",\n        \"userType\": null,\n        \"loginName\": \"bmind2222\",\n        \"currentlyLogined\": true,\n        \"permissionList\": []\n       \n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					},
+					{
+						"key": "q-car-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MjY3NzYyLCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjowfQ.E0CkuEb12HlG6hDF0gP_2CZi4GiY_lpfTej-BkBeesE"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"fullName\":\"محمود الجديد\",\"city\":2,\"homeAddress\":null,\"homeLocation\":null,\"currentLocation\":null,\"mobileNumber1\":\"+22222\",\"mobileNumber2\":null,\"homePhoneNumber\":null,\"notes\":\"sssss\",\"status\":true,\"inTrip\":false,\"rating\":2,\"credit\":12}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Activate",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					},
+					{
+						"key": "q-car-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MDE3MzY4LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.uzPM_PVSrh5pS1kbDAHRT-mLeex6L7YSR2gWF8I8CmI"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 2,\n        \"updatedBy\": 20,\n        \"clientInfo\": {\n            \"uri\": \"http://localhost:8080/api/drivers\",\n            \"agent\": \"PostmanRuntime/7.1.1\",\n            \"method\": \"POST\",\n            \"clientIp\": \"0:0:0:0:0:0:0:1\",\n            \"clientPort\": 65219\n        },\n        \"updatedOn\": 1514913547026,\n        \"fullName\": \"آحمد خميسsss\",\n        \"city\": 5,\n        \"homeLocation\": {\"coordinates\":[44.3,443]},\n        \"currentLocation\": {\"coordinates\":[29.3132742,30.85709780000002]},\n        \"mobileNumber1\": \"+20109ss9000\",\n        \"mobileNumber2\": \"+201099000\",\n        \"homePhoneNumber\": null,\n        \"notes\": \"آحمد خميس عبل العيسس\",\n        \"status\": true,\n        \"online\": false,\n        \"rating\": null,\n        \"idNumber\": null,\n        \"licenseNumber\": null,\n        \"carLicenseNumber\": null,\n        \"carPlateNumber\": null,\n        \"carLicenseExpiryDate\": null,\n        \"carLicenseCity\": null,\n        \"birthDate\": null,\n        \"credit\": null\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/drivers/1/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"drivers",
+						"1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find By Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "q-car-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MTc1MTQ3LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.cfDl54r40VQB66NXXR1i2YUI9RFyjI4vj9DlgPN69ls"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userName\":\"bmind\",\"password\":\"sss\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/customers/id/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers",
+						"id",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					},
+					{
+						"key": "q-car-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MTc1MTQ3LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.cfDl54r40VQB66NXXR1i2YUI9RFyjI4vj9DlgPN69ls"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 1,\n        \"updatedBy\": 20,\n        \"clientInfo\": {\n            \"uri\": \"http://localhost:8080/api/customers\",\n            \"agent\": \"PostmanRuntime/7.1.1\",\n            \"method\": \"POST\",\n            \"clientIp\": \"0:0:0:0:0:0:0:1\",\n            \"clientPort\": 49690\n        },\n        \"updatedOn\": 1515157800416,\n        \"fullName\": \"محمودssss الجديد\",\n        \"city\": 2,\n        \"homeAddress\": null,\n        \"homeLocation\": null,\n        \"currentLocation\": null,\n        \"mobileNumber1\": \"+22222\",\n        \"mobileNumber2\": null,\n        \"homePhoneNumber\": null,\n        \"notes\": \"sssss\",\n        \"status\": true,\n        \"inTrip\": false,\n        \"rating\": 2,\n        \"credit\": 12\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

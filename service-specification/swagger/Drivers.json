@@ -1,0 +1,1340 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "QCar-Drivers",
+    "description": "TODO: Add Description",
+    "license": {
+      "name": "MIT",
+      "url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+    }
+  },
+  "host": "localhost:8080",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/drivers": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Find All",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "DriversGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/drivers",
+              "headers": {
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MTc1MTQ3LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.cfDl54r40VQB66NXXR1i2YUI9RFyjI4vj9DlgPN69ls"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Find All",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "put": {
+        "description": "TODO: Add Description",
+        "summary": "Update",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "DriversPut",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UpdateRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "PUT",
+              "uri": "/drivers",
+              "headers": {
+                "Content-Type": "application/json",
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE0OTM0Mzg4LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.q4Bd9jfR64nDDSfjcR3KtiofumYq6OjZtTQD-SxmX9o"
+              },
+              "body": "{\n        \"id\": 2,\n        \"updatedBy\": 20,\n        \"clientInfo\": {\n            \"uri\": \"http://localhost:8080/api/drivers\",\n            \"agent\": \"PostmanRuntime/7.1.1\",\n            \"method\": \"POST\",\n            \"clientIp\": \"0:0:0:0:0:0:0:1\",\n            \"clientPort\": 65219\n        },\n        \"updatedOn\": 1514913547026,\n        \"fullName\": \"آحمد خميسsss\",\n        \"city\": 5,\n        \"homeLocation\": {\"coordinates\":[44.3,443]},\n        \"currentLocation\": {\"coordinates\":[29.3132742,30.85709780000002]},\n        \"mobileNumber1\": \"+20109ss9000\",\n        \"mobileNumber2\": \"+201099000\",\n        \"homePhoneNumber\": null,\n        \"notes\": \"آحمد خميس عبل العيسس\",\n        \"status\": true,\n        \"online\": false,\n        \"rating\": null,\n        \"idNumber\": null,\n        \"licenseNumber\": null,\n        \"carLicenseNumber\": null,\n        \"carPlateNumber\": null,\n        \"carLicenseExpiryDate\": null,\n        \"carLicenseCity\": null,\n        \"birthDate\": null,\n        \"credit\": null\n    }"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Update",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Save",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "DriversPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/drivers",
+              "headers": {
+                "Content-Type": "application/json; charset=utf-8",
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MTA5NDc5LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.v4tNphGjJx91NU6FmuojLD5WC5fg8LJY21mCBu3bVVE"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Save",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/drivers/1/activate": {
+      "put": {
+        "description": "TODO: Add Description",
+        "summary": "Activate",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Drivers1ActivatePut",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ActivateRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "PUT",
+              "uri": "/drivers/1/activate",
+              "headers": {
+                "Content-Type": "application/json",
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MDE3MzY4LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.uzPM_PVSrh5pS1kbDAHRT-mLeex6L7YSR2gWF8I8CmI"
+              },
+              "body": "{\n        \"id\": 2,\n        \"updatedBy\": 20,\n        \"clientInfo\": {\n            \"uri\": \"http://localhost:8080/api/drivers\",\n            \"agent\": \"PostmanRuntime/7.1.1\",\n            \"method\": \"POST\",\n            \"clientIp\": \"0:0:0:0:0:0:0:1\",\n            \"clientPort\": 65219\n        },\n        \"updatedOn\": 1514913547026,\n        \"fullName\": \"آحمد خميسsss\",\n        \"city\": 5,\n        \"homeLocation\": {\"coordinates\":[44.3,443]},\n        \"currentLocation\": {\"coordinates\":[29.3132742,30.85709780000002]},\n        \"mobileNumber1\": \"+20109ss9000\",\n        \"mobileNumber2\": \"+201099000\",\n        \"homePhoneNumber\": null,\n        \"notes\": \"آحمد خميس عبل العيسس\",\n        \"status\": true,\n        \"online\": false,\n        \"rating\": null,\n        \"idNumber\": null,\n        \"licenseNumber\": null,\n        \"carLicenseNumber\": null,\n        \"carPlateNumber\": null,\n        \"carLicenseExpiryDate\": null,\n        \"carLicenseCity\": null,\n        \"birthDate\": null,\n        \"credit\": null\n    }"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Activate",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/drivers/id/1/pic": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Upload Pic",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "DriversId1PicPost",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/drivers/1/de-activate": {
+      "put": {
+        "description": "TODO: Add Description",
+        "summary": "Deactivate",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "Drivers1DeActivatePut",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DeactivateRequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "PUT",
+              "uri": "/drivers/1/de-activate",
+              "headers": {
+                "Content-Type": "application/json",
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MDE3MzY4LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.uzPM_PVSrh5pS1kbDAHRT-mLeex6L7YSR2gWF8I8CmI"
+              },
+              "body": "{\n        \"id\": 2,\n        \"updatedBy\": 20,\n        \"clientInfo\": {\n            \"uri\": \"http://localhost:8080/api/drivers\",\n            \"agent\": \"PostmanRuntime/7.1.1\",\n            \"method\": \"POST\",\n            \"clientIp\": \"0:0:0:0:0:0:0:1\",\n            \"clientPort\": 65219\n        },\n        \"updatedOn\": 1514913547026,\n        \"fullName\": \"آحمد خميسsss\",\n        \"city\": 5,\n        \"homeLocation\": {\"coordinates\":[44.3,443]},\n        \"currentLocation\": {\"coordinates\":[29.3132742,30.85709780000002]},\n        \"mobileNumber1\": \"+20109ss9000\",\n        \"mobileNumber2\": \"+201099000\",\n        \"homePhoneNumber\": null,\n        \"notes\": \"آحمد خميس عبل العيسس\",\n        \"status\": true,\n        \"online\": false,\n        \"rating\": null,\n        \"idNumber\": null,\n        \"licenseNumber\": null,\n        \"carLicenseNumber\": null,\n        \"carPlateNumber\": null,\n        \"carLicenseExpiryDate\": null,\n        \"carLicenseCity\": null,\n        \"birthDate\": null,\n        \"credit\": null\n    }"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Deactivate",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/drivers/bulk": {
+      "delete": {
+        "description": "TODO: Add Description",
+        "summary": "Delete BulK",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "DriversBulkDelete",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "DELETE",
+              "uri": "/drivers/bulk",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "[1,2]"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Delete BulK",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/drivers/id/2": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Find By Id",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "DriversId2Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/drivers/id/2",
+              "headers": {
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE0OTI1MjA4LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.h5M7p7ZAE3-8HfEwHx5pGverToYNKDJk7C-YJXwFZ5I"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Find By Id",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/drivers/distance": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Find In Distance",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "DriversDistanceGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "lng",
+            "in": "query",
+            "required": true,
+            "type": "number",
+            "format": "double",
+            "description": ""
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "required": true,
+            "type": "number",
+            "format": "double",
+            "description": ""
+          },
+          {
+            "name": "radius",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          },
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/drivers/distance?lng=30.855960845947266&lat=29.3133076162325&radius=1000",
+              "headers": {
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MDE3MzY4LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.uzPM_PVSrh5pS1kbDAHRT-mLeex6L7YSR2gWF8I8CmI"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Find In Distance",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/drivers/online": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Find Active Online",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "DriversOnlineGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/drivers/online",
+              "headers": {
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MDE3MzY4LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.uzPM_PVSrh5pS1kbDAHRT-mLeex6L7YSR2gWF8I8CmI"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Find Active Online",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/drivers/pic/id/1": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "Find Pic",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "DriversPicId1Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "q-car-auth",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/drivers/pic/id/1",
+              "headers": {
+                "q-car-auth": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1MTA5NDc5LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjoyMH0.v4tNphGjJx91NU6FmuojLD5WC5fg8LJY21mCBu3bVVE"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Find Pic",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    }
+  },
+  "definitions": {
+    "UpdateRequest": {
+      "title": "UpdateRequest",
+      "example": {
+        "id": 2,
+        "updatedBy": 20,
+        "clientInfo": {
+          "uri": "http://localhost:8080/api/drivers",
+          "agent": "PostmanRuntime/7.1.1",
+          "method": "POST",
+          "clientIp": "0:0:0:0:0:0:0:1",
+          "clientPort": 65219
+        },
+        "updatedOn": 1514913547026,
+        "fullName": "آحمد خميسsss",
+        "city": 5,
+        "homeLocation": {
+          "coordinates": [
+            44.3,
+            443
+          ]
+        },
+        "currentLocation": {
+          "coordinates": [
+            29.3132742,
+            30.85709780000002
+          ]
+        },
+        "mobileNumber1": "+20109ss9000",
+        "mobileNumber2": "+201099000",
+        "homePhoneNumber": null,
+        "notes": "آحمد خميس عبل العيسس",
+        "status": true,
+        "online": false,
+        "rating": null,
+        "idNumber": null,
+        "licenseNumber": null,
+        "carLicenseNumber": null,
+        "carPlateNumber": null,
+        "carLicenseExpiryDate": null,
+        "carLicenseCity": null,
+        "birthDate": null,
+        "credit": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": 2,
+          "type": "integer",
+          "format": "int32"
+        },
+        "updatedBy": {
+          "description": "",
+          "example": 20,
+          "type": "integer",
+          "format": "int32"
+        },
+        "clientInfo": {
+          "$ref": "#/definitions/ClientInfo"
+        },
+        "updatedOn": {
+          "description": "",
+          "example": 1514913547026,
+          "type": "integer",
+          "format": "int64"
+        },
+        "fullName": {
+          "description": "",
+          "example": "آحمد خميسsss",
+          "type": "string"
+        },
+        "city": {
+          "description": "",
+          "example": 5,
+          "type": "integer",
+          "format": "int32"
+        },
+        "homeLocation": {
+          "$ref": "#/definitions/HomeLocation"
+        },
+        "currentLocation": {
+          "$ref": "#/definitions/CurrentLocation"
+        },
+        "mobileNumber1": {
+          "description": "",
+          "example": "+20109ss9000",
+          "type": "string"
+        },
+        "mobileNumber2": {
+          "description": "",
+          "example": "+201099000",
+          "type": "string"
+        },
+        "homePhoneNumber": {
+          "description": ""
+        },
+        "notes": {
+          "description": "",
+          "example": "آحمد خميس عبل العيسس",
+          "type": "string"
+        },
+        "status": {
+          "description": "",
+          "example": true,
+          "type": "boolean"
+        },
+        "online": {
+          "description": "",
+          "example": false,
+          "type": "boolean"
+        },
+        "rating": {
+          "description": ""
+        },
+        "idNumber": {
+          "description": ""
+        },
+        "licenseNumber": {
+          "description": ""
+        },
+        "carLicenseNumber": {
+          "description": ""
+        },
+        "carPlateNumber": {
+          "description": ""
+        },
+        "carLicenseExpiryDate": {
+          "description": ""
+        },
+        "carLicenseCity": {
+          "description": ""
+        },
+        "birthDate": {
+          "description": ""
+        },
+        "credit": {
+          "description": ""
+        }
+      },
+      "required": [
+        "id",
+        "updatedBy",
+        "clientInfo",
+        "updatedOn",
+        "fullName",
+        "city",
+        "homeLocation",
+        "currentLocation",
+        "mobileNumber1",
+        "mobileNumber2",
+        "homePhoneNumber",
+        "notes",
+        "status",
+        "online",
+        "rating",
+        "idNumber",
+        "licenseNumber",
+        "carLicenseNumber",
+        "carPlateNumber",
+        "carLicenseExpiryDate",
+        "carLicenseCity",
+        "birthDate",
+        "credit"
+      ]
+    },
+    "ClientInfo": {
+      "title": "ClientInfo",
+      "example": {
+        "uri": "http://localhost:8080/api/drivers",
+        "agent": "PostmanRuntime/7.1.1",
+        "method": "POST",
+        "clientIp": "0:0:0:0:0:0:0:1",
+        "clientPort": 65219
+      },
+      "type": "object",
+      "properties": {
+        "uri": {
+          "description": "",
+          "example": "http://localhost:8080/api/drivers",
+          "type": "string"
+        },
+        "agent": {
+          "description": "",
+          "example": "PostmanRuntime/7.1.1",
+          "type": "string"
+        },
+        "method": {
+          "description": "",
+          "example": "POST",
+          "type": "string"
+        },
+        "clientIp": {
+          "description": "",
+          "example": "0:0:0:0:0:0:0:1",
+          "type": "string"
+        },
+        "clientPort": {
+          "description": "",
+          "example": 65219,
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "uri",
+        "agent",
+        "method",
+        "clientIp",
+        "clientPort"
+      ]
+    },
+    "HomeLocation": {
+      "title": "HomeLocation",
+      "example": {
+        "coordinates": [
+          44.3,
+          443
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "coordinates": {
+          "description": "",
+          "example": [
+            44.3,
+            443
+          ],
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "required": [
+        "coordinates"
+      ]
+    },
+    "CurrentLocation": {
+      "title": "CurrentLocation",
+      "example": {
+        "coordinates": [
+          29.3132742,
+          30.85709780000002
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "coordinates": {
+          "description": "",
+          "example": [
+            29.3132742,
+            30.85709780000002
+          ],
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "required": [
+        "coordinates"
+      ]
+    },
+    "ActivateRequest": {
+      "title": "ActivateRequest",
+      "example": {
+        "id": 2,
+        "updatedBy": 20,
+        "clientInfo": {
+          "uri": "http://localhost:8080/api/drivers",
+          "agent": "PostmanRuntime/7.1.1",
+          "method": "POST",
+          "clientIp": "0:0:0:0:0:0:0:1",
+          "clientPort": 65219
+        },
+        "updatedOn": 1514913547026,
+        "fullName": "آحمد خميسsss",
+        "city": 5,
+        "homeLocation": {
+          "coordinates": [
+            44.3,
+            443
+          ]
+        },
+        "currentLocation": {
+          "coordinates": [
+            29.3132742,
+            30.85709780000002
+          ]
+        },
+        "mobileNumber1": "+20109ss9000",
+        "mobileNumber2": "+201099000",
+        "homePhoneNumber": null,
+        "notes": "آحمد خميس عبل العيسس",
+        "status": true,
+        "online": false,
+        "rating": null,
+        "idNumber": null,
+        "licenseNumber": null,
+        "carLicenseNumber": null,
+        "carPlateNumber": null,
+        "carLicenseExpiryDate": null,
+        "carLicenseCity": null,
+        "birthDate": null,
+        "credit": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": 2,
+          "type": "integer",
+          "format": "int32"
+        },
+        "updatedBy": {
+          "description": "",
+          "example": 20,
+          "type": "integer",
+          "format": "int32"
+        },
+        "clientInfo": {
+          "$ref": "#/definitions/ClientInfo"
+        },
+        "updatedOn": {
+          "description": "",
+          "example": 1514913547026,
+          "type": "integer",
+          "format": "int64"
+        },
+        "fullName": {
+          "description": "",
+          "example": "آحمد خميسsss",
+          "type": "string"
+        },
+        "city": {
+          "description": "",
+          "example": 5,
+          "type": "integer",
+          "format": "int32"
+        },
+        "homeLocation": {
+          "$ref": "#/definitions/HomeLocation"
+        },
+        "currentLocation": {
+          "$ref": "#/definitions/CurrentLocation"
+        },
+        "mobileNumber1": {
+          "description": "",
+          "example": "+20109ss9000",
+          "type": "string"
+        },
+        "mobileNumber2": {
+          "description": "",
+          "example": "+201099000",
+          "type": "string"
+        },
+        "homePhoneNumber": {
+          "description": ""
+        },
+        "notes": {
+          "description": "",
+          "example": "آحمد خميس عبل العيسس",
+          "type": "string"
+        },
+        "status": {
+          "description": "",
+          "example": true,
+          "type": "boolean"
+        },
+        "online": {
+          "description": "",
+          "example": false,
+          "type": "boolean"
+        },
+        "rating": {
+          "description": ""
+        },
+        "idNumber": {
+          "description": ""
+        },
+        "licenseNumber": {
+          "description": ""
+        },
+        "carLicenseNumber": {
+          "description": ""
+        },
+        "carPlateNumber": {
+          "description": ""
+        },
+        "carLicenseExpiryDate": {
+          "description": ""
+        },
+        "carLicenseCity": {
+          "description": ""
+        },
+        "birthDate": {
+          "description": ""
+        },
+        "credit": {
+          "description": ""
+        }
+      },
+      "required": [
+        "id",
+        "updatedBy",
+        "clientInfo",
+        "updatedOn",
+        "fullName",
+        "city",
+        "homeLocation",
+        "currentLocation",
+        "mobileNumber1",
+        "mobileNumber2",
+        "homePhoneNumber",
+        "notes",
+        "status",
+        "online",
+        "rating",
+        "idNumber",
+        "licenseNumber",
+        "carLicenseNumber",
+        "carPlateNumber",
+        "carLicenseExpiryDate",
+        "carLicenseCity",
+        "birthDate",
+        "credit"
+      ]
+    },
+    "DeactivateRequest": {
+      "title": "DeactivateRequest",
+      "example": {
+        "id": 2,
+        "updatedBy": 20,
+        "clientInfo": {
+          "uri": "http://localhost:8080/api/drivers",
+          "agent": "PostmanRuntime/7.1.1",
+          "method": "POST",
+          "clientIp": "0:0:0:0:0:0:0:1",
+          "clientPort": 65219
+        },
+        "updatedOn": 1514913547026,
+        "fullName": "آحمد خميسsss",
+        "city": 5,
+        "homeLocation": {
+          "coordinates": [
+            44.3,
+            443
+          ]
+        },
+        "currentLocation": {
+          "coordinates": [
+            29.3132742,
+            30.85709780000002
+          ]
+        },
+        "mobileNumber1": "+20109ss9000",
+        "mobileNumber2": "+201099000",
+        "homePhoneNumber": null,
+        "notes": "آحمد خميس عبل العيسس",
+        "status": true,
+        "online": false,
+        "rating": null,
+        "idNumber": null,
+        "licenseNumber": null,
+        "carLicenseNumber": null,
+        "carPlateNumber": null,
+        "carLicenseExpiryDate": null,
+        "carLicenseCity": null,
+        "birthDate": null,
+        "credit": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": 2,
+          "type": "integer",
+          "format": "int32"
+        },
+        "updatedBy": {
+          "description": "",
+          "example": 20,
+          "type": "integer",
+          "format": "int32"
+        },
+        "clientInfo": {
+          "$ref": "#/definitions/ClientInfo"
+        },
+        "updatedOn": {
+          "description": "",
+          "example": 1514913547026,
+          "type": "integer",
+          "format": "int64"
+        },
+        "fullName": {
+          "description": "",
+          "example": "آحمد خميسsss",
+          "type": "string"
+        },
+        "city": {
+          "description": "",
+          "example": 5,
+          "type": "integer",
+          "format": "int32"
+        },
+        "homeLocation": {
+          "$ref": "#/definitions/HomeLocation"
+        },
+        "currentLocation": {
+          "$ref": "#/definitions/CurrentLocation"
+        },
+        "mobileNumber1": {
+          "description": "",
+          "example": "+20109ss9000",
+          "type": "string"
+        },
+        "mobileNumber2": {
+          "description": "",
+          "example": "+201099000",
+          "type": "string"
+        },
+        "homePhoneNumber": {
+          "description": ""
+        },
+        "notes": {
+          "description": "",
+          "example": "آحمد خميس عبل العيسس",
+          "type": "string"
+        },
+        "status": {
+          "description": "",
+          "example": true,
+          "type": "boolean"
+        },
+        "online": {
+          "description": "",
+          "example": false,
+          "type": "boolean"
+        },
+        "rating": {
+          "description": ""
+        },
+        "idNumber": {
+          "description": ""
+        },
+        "licenseNumber": {
+          "description": ""
+        },
+        "carLicenseNumber": {
+          "description": ""
+        },
+        "carPlateNumber": {
+          "description": ""
+        },
+        "carLicenseExpiryDate": {
+          "description": ""
+        },
+        "carLicenseCity": {
+          "description": ""
+        },
+        "birthDate": {
+          "description": ""
+        },
+        "credit": {
+          "description": ""
+        }
+      },
+      "required": [
+        "id",
+        "updatedBy",
+        "clientInfo",
+        "updatedOn",
+        "fullName",
+        "city",
+        "homeLocation",
+        "currentLocation",
+        "mobileNumber1",
+        "mobileNumber2",
+        "homePhoneNumber",
+        "notes",
+        "status",
+        "online",
+        "rating",
+        "idNumber",
+        "licenseNumber",
+        "carLicenseNumber",
+        "carPlateNumber",
+        "carLicenseExpiryDate",
+        "carLicenseCity",
+        "birthDate",
+        "credit"
+      ]
+    }
+  }
+}

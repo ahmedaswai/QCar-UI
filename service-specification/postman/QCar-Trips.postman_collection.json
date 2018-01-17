@@ -1,0 +1,163 @@
+{
+	"info": {
+		"name": "QCar-Trips",
+		"_postman_id": "52a8ae81-f79a-c4b9-f419-53f8f7184853",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Save",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json; charset=utf-8"
+					},
+					{
+						"key": "q-car-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE2MjM0MTM5LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjowfQ.VdxpvRkFczkVGUjGiYuOJTDMGI146fd9kENudOumz-w"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":null,\"updatedOn\":1516215794249,\"startLoc\":null,\"endLoc\":null,\"driver\":{\"id\":1},\n\"order\":{\n\t\t\"orderLocation\":null,\n\t\t\"fromLocation\":null,\n\t\t\"toLocation\":null,\n\t\t\"orderTime\":null,\n\t\t\"tripStartTime\":null,\n\t\t\"tripEndTime\":null,\n\t\t\"notes\":\"ملاحظات جديده\"\n\t\t,\"paymentMethod\":0,\n\t\t\"status\":true,\n\t\t\"id\":13,\n\t\n\t\t\"customer\":{\n\t\t\t\n        \"id\": 1\n\t\t\t\n\t\t}\n\t\n},\"status\":1,\"propsedStartTime\":null,\"propsedEndTime\":null,\n\"propsedDistance\":2000,\"propsedCost\":20,\n\"actualStartTime\":null,\n\"actualEndTime\":null,\"actualCost\":4000,\n\"actualDistance\":30030,\n\"notes\":\"ملاحظات جديده\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/trips",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find By Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "q-car-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE2MjM0MTM5LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjowfQ.VdxpvRkFczkVGUjGiYuOJTDMGI146fd9kENudOumz-w"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userName\":\"bmind\",\"password\":\"sss\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/trips/id/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"id",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find By Criteria",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "q-car-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9Uek1Vb2NNRjRwIiwiZXhwIjoxNTE1NTI1Njk0LCJ1c2VyLW5hbWUiOiJibWluZCIsInBlcm1pc3Npb25zIjowLCJ1c2VyLWlkIjowfQ.HSLuaTIguvCooDOEl22rhB3ofzAVBlfsHlh1WIKz33U"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userName\":\"bmind\",\"password\":\"sss\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/trips/criteria?fromLat=0&fromLng=0&fromRange=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"trips",
+						"criteria"
+					],
+					"query": [
+						{
+							"key": "paymentMethod",
+							"value": "0",
+							"equals": true,
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "true",
+							"equals": true,
+							"disabled": true
+						},
+						{
+							"key": "orderNum",
+							"value": "2018000014",
+							"equals": true,
+							"disabled": true
+						},
+						{
+							"key": "customerId",
+							"value": "1",
+							"equals": true,
+							"disabled": true
+						},
+						{
+							"key": "notes",
+							"value": "ملاحظات",
+							"equals": true,
+							"disabled": true
+						},
+						{
+							"key": "fromLat",
+							"value": "0",
+							"equals": true
+						},
+						{
+							"key": "fromLng",
+							"value": "0",
+							"equals": true
+						},
+						{
+							"key": "fromRange",
+							"value": "0",
+							"equals": true
+						},
+						{
+							"key": "orderDateFrom",
+							"value": "1515429814",
+							"equals": true,
+							"disabled": true
+						},
+						{
+							"key": "orderDateTo",
+							"value": "1576163532",
+							"equals": true,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
