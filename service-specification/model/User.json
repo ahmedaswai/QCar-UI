@@ -1,0 +1,107 @@
+1 {
+2   "$id": "http://example.com/example.json",
+3   "type": "object",
+4   "definitions": {},
+5   "$schema": "http://json-schema.org/draft-06/schema#",
+6   "properties": {
+7     "id": {
+8       "$id": "/properties/id",
+9       "type": "integer",
+10       "title": "The Id Schema",
+11       "description": "An explanation about the purpose of this instance.",
+12       "default": 0,
+13       "examples": [
+14         12
+15       ]
+16     },
+17     "updatedOn": {
+18       "$id": "/properties/updatedOn",
+19       "type": "integer",
+20       "title": "The Updatedon Schema",
+21       "description": "Update On TimeStamp View Only , as this field is updated automtically",
+22       "default": 0,
+23       "examples": [
+24         1516492080219
+25       ],
+26       "readOnly": true,
+27       "writeOnly": false
+28     },
+29     "userName": {
+30       "$id": "/properties/userName",
+31       "type": "string",
+32       "title": "The Username Schema",
+33       "description": "An explanation about the purpose of this instance.",
+34       "default": "",
+35       "examples": [
+36         "Ahmed Khamis"
+37       ]
+38     },
+39     "password": {
+40       "$id": "/properties/password",
+41       "type": "string",
+42       "title": "The Password Schema",
+43       "description": "An explanation about the purpose of this instance.",
+44       "default": "",
+45       "examples": [
+46         "123"
+47       ]
+48     },
+49     "status": {
+50       "$id": "/properties/status",
+51       "type": "boolean",
+52       "title": "The Status Schema",
+53       "description": "An explanation about the purpose of this instance.",
+54       "default": false,
+55       "examples": [
+56         true
+57       ]
+58     },
+59     "userType": {
+60       "$id": "/properties/userType",
+61       "type": "integer",
+62       "title": "The Usertype Schema",
+63       "description": "VALUES FROM This Enum Admin(0),Owner(1),Driver(2),Customer(3)",
+64       "default": 0,
+65       "examples": [
+66         0
+67       ],
+68       "enum": [
+69         ""
+70       ]
+71     },
+72     "loginName": {
+73       "$id": "/properties/loginName",
+74       "type": "string",
+75       "title": "The Loginname Schema",
+76       "description": "An explanation about the purpose of this instance.",
+77       "default": "",
+78       "examples": [
+79         "bmind"
+80       ]
+81     },
+82     "currentlyLogined": {
+83       "$id": "/properties/currentlyLogined",
+84       "type": "boolean",
+85       "title": "The Currentlylogined Schema",
+86       "description": "An explanation about the purpose of this instance.",
+87       "default": false,
+88       "examples": [
+89         false
+90       ]
+91     },
+92     "permissionList": {
+93       "$id": "/properties/permissionList",
+94       "type": "array",
+95       "items": {
+96         "$id": "/properties/permissionList/items",
+97         "type": "string",
+98         "title": "The 0 Schema",
+99         "description": "An explanation about the purpose of this instance.",
+100         "default": "",
+101         "examples": [
+102           "ADD_CUSTOMER"
+103         ]
+104       }
+105     }
+106   }
+107 }
