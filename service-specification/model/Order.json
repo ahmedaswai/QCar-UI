@@ -1,0 +1,188 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "updatedOn": {
+      "type": "integer"
+    },
+    "orderNum": {
+      "type": "integer"
+    },
+    "orderLocation": {
+      "type": "object",
+      "properties": {
+        "coordinates": {
+          "type": "array",
+          "items": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "coordinates",
+        "type"
+      ]
+    },
+    "fromLocation": {
+      "type": "object",
+      "properties": {
+        "coordinates": {
+          "type": "array",
+          "items": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "coordinates",
+        "type"
+      ]
+    },
+    "toLocation": {
+      "type": "object",
+      "properties": {
+        "coordinates": {
+          "type": "array",
+          "items": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "coordinates",
+        "type"
+      ]
+    },
+    "orderTime": {
+      "type": "integer"
+    },
+    "tripStartTime": {
+      "type": "integer"
+    },
+    "tripEndTime": {
+      "type": "integer"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "paymentMethod": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "boolean"
+    },
+    "customer": {
+      "type": "object",
+      "properties": {
+        "updatedOn": {
+          "type": "integer"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "city": {
+          "type": "integer"
+        },
+        "homeAddress": {
+          "type": "string"
+        },
+        "currentLocation": {
+          "type": "object",
+          "properties": {
+            "coordinates": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ]
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "coordinates",
+            "type"
+          ]
+        },
+        "mobileNumber1": {
+          "type": "string"
+        },
+        "mobileNumber2": {
+          "type": "string"
+        },
+        "homePhoneNumber": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "status": {
+          "type": "boolean"
+        },
+        "inTrip": {
+          "type": "boolean"
+        },
+        "credit": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "updatedOn",
+        "fullName",
+        "city",
+        "homeAddress",
+        "currentLocation",
+        "mobileNumber1",
+        "mobileNumber2",
+        "homePhoneNumber",
+        "notes",
+        "status",
+        "inTrip",
+        "credit"
+      ]
+    }
+  },
+  "required": [
+    "updatedOn",
+    "orderNum",
+    "orderLocation",
+    "fromLocation",
+    "toLocation",
+    "orderTime",
+    "tripStartTime",
+    "tripEndTime",
+    "notes",
+    "paymentMethod",
+    "status",
+    "customer"
+  ]
+}
