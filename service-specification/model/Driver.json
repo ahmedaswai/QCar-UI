@@ -1,198 +1,198 @@
-1 {
-2   "$id": "http://example.com/example.json",
-3   "type": "object",
-4   "definitions": {},
-5   "$schema": "http://json-schema.org/draft-06/schema#",
-6   "properties": {
-7     "id": {
-8       "$id": "/properties/id",
-9       "type": "integer",
-10       "title": "The Id Schema",
-11       "description": "An explanation about the purpose of this instance.",
-12       "default": 0,
-13       "examples": [
-14         33
-15       ]
-16     },
-17     "updatedOn": {
-18       "$id": "/properties/updatedOn",
-19       "type": "integer",
-20       "title": "The Updatedon Schema",
-21       "description": "An explanation about the purpose of this instance.",
-22       "default": 0,
-23       "examples": [
-24         1516493242899
-25       ]
-26     },
-27     "homeLocation": {
-28       "$id": "/properties/homeLocation",
-29       "type": "object",
-30       "properties": {
-31         "coordinates": {
-32           "$id": "/properties/homeLocation/properties/coordinates",
-33           "type": "array",
-34           "items": {
-35             "$id": "/properties/homeLocation/properties/coordinates/items",
-36             "type": "number",
-37             "title": "The 0 Schema",
-38             "description": "An explanation about the purpose of this instance.",
-39             "default": 0.0,
-40             "examples": [
-41               44.29999923706055
-42             ]
-43           }
-44         },
-45         "type": {
-46           "$id": "/properties/homeLocation/properties/type",
-47           "type": "string",
-48           "title": "The Type Schema",
-49           "description": "An explanation about the purpose of this instance.",
-50           "default": "",
-51           "examples": [
-52             "Point"
-53           ]
-54         }
-55       }
-56     },
-57     "mobileNumber1": {
-58       "$id": "/properties/mobileNumber1",
-59       "type": "string",
-60       "title": "The Mobilenumber1 Schema",
-61       "description": "An explanation about the purpose of this instance.",
-62       "default": "",
-63       "examples": [
-64         "33333"
-65       ]
-66     },
-67     "mobileNumber2": {
-68       "$id": "/properties/mobileNumber2",
-69       "type": "string",
-70       "title": "The Mobilenumber2 Schema",
-71       "description": "An explanation about the purpose of this instance.",
-72       "default": "",
-73       "examples": [
-74         "ddddd"
-75       ]
-76     },
-77     "homePhoneNumber": {
-78       "$id": "/properties/homePhoneNumber",
-79       "type": "string",
-80       "title": "The Homephonenumber Schema",
-81       "description": "An explanation about the purpose of this instance.",
-82       "default": "",
-83       "examples": [
-84         "ddddd"
-85       ]
-86     },
-87     "notes": {
-88       "$id": "/properties/notes",
-89       "type": "string",
-90       "title": "The Notes Schema",
-91       "description": "An explanation about the purpose of this instance.",
-92       "default": "",
-93       "examples": [
-94         "sdsadasd"
-95       ]
-96     },
-97     "status": {
-98       "$id": "/properties/status",
-99       "type": "boolean",
-100       "title": "The Status Schema",
-101       "description": "An explanation about the purpose of this instance.",
-102       "default": false,
-103       "examples": [
-104         true
-105       ]
-106     },
-107     "online": {
-108       "$id": "/properties/online",
-109       "type": "boolean",
-110       "title": "The Online Schema",
-111       "description": "An explanation about the purpose of this instance.",
-112       "default": false,
-113       "examples": [
-114         true
-115       ]
-116     },
-117     "rating": {
-118       "$id": "/properties/rating",
-119       "type": "number",
-120       "title": "The Rating Schema",
-121       "description": "An explanation about the purpose of this instance.",
-122       "default": 0.0,
-123       "examples": [
-124         2.5
-125       ]
-126     },
-127     "idNumber": {
-128       "$id": "/properties/idNumber",
-129       "type": "string",
-130       "title": "The Idnumber Schema",
-131       "description": "An explanation about the purpose of this instance.",
-132       "default": "",
-133       "examples": [
-134         "333"
-135       ]
-136     },
-137     "licenseNumber": {
-138       "$id": "/properties/licenseNumber",
-139       "type": "string",
-140       "title": "The Licensenumber Schema",
-141       "description": "An explanation about the purpose of this instance.",
-142       "default": "",
-143       "examples": [
-144         "3333"
-145       ]
-146     },
-147     "carLicenseNumber": {
-148       "$id": "/properties/carLicenseNumber",
-149       "type": "string",
-150       "title": "The Carlicensenumber Schema",
-151       "description": "An explanation about the purpose of this instance.",
-152       "default": "",
-153       "examples": [
-154         "3333"
-155       ]
-156     },
-157     "carLicenseExpiryDate": {
-158       "$id": "/properties/carLicenseExpiryDate",
-159       "type": "integer",
-160       "title": "The Carlicenseexpirydate Schema",
-161       "description": "An explanation about the purpose of this instance.",
-162       "default": 0,
-163       "examples": [
-164         1516493242899
-165       ]
-166     },
-167     "carLicenseCity": {
-168       "$id": "/properties/carLicenseCity",
-169       "type": "integer",
-170       "title": "The Carlicensecity Schema",
-171       "description": "An explanation about the purpose of this instance.",
-172       "default": 0,
-173       "examples": [
-174         12
-175       ]
-176     },
-177     "birthDate": {
-178       "$id": "/properties/birthDate",
-179       "type": "integer",
-180       "title": "The Birthdate Schema",
-181       "description": "An explanation about the purpose of this instance.",
-182       "default": 0,
-183       "examples": [
-184         1516493242899
-185       ]
-186     },
-187     "credit": {
-188       "$id": "/properties/credit",
-189       "type": "integer",
-190       "title": "The Credit Schema",
-191       "description": "An explanation about the purpose of this instance.",
-192       "default": 0,
-193       "examples": [
-194         222
-195       ]
-196     }
-197   }
-198 }
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "properties": {
+    "id": {
+      "$id": "/properties/id",
+      "type": "integer",
+      "title": "The Id Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": 0,
+      "examples": [
+        33
+      ]
+    },
+    "updatedOn": {
+      "$id": "/properties/updatedOn",
+      "type": "integer",
+      "title": "The Updatedon Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": 0,
+      "examples": [
+        1516493242899
+      ]
+    },
+    "homeLocation": {
+      "$id": "/properties/homeLocation",
+      "type": "object",
+      "properties": {
+        "coordinates": {
+          "$id": "/properties/homeLocation/properties/coordinates",
+          "type": "array",
+          "items": {
+            "$id": "/properties/homeLocation/properties/coordinates/items",
+            "type": "number",
+            "title": "The 0 Schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0.0,
+            "examples": [
+              44.29999923706055
+            ]
+          }
+        },
+        "type": {
+          "$id": "/properties/homeLocation/properties/type",
+          "type": "string",
+          "title": "The Type Schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "Point"
+          ]
+        }
+      }
+    },
+    "mobileNumber1": {
+      "$id": "/properties/mobileNumber1",
+      "type": "string",
+      "title": "The Mobilenumber1 Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "33333"
+      ]
+    },
+    "mobileNumber2": {
+      "$id": "/properties/mobileNumber2",
+      "type": "string",
+      "title": "The Mobilenumber2 Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "ddddd"
+      ]
+    },
+    "homePhoneNumber": {
+      "$id": "/properties/homePhoneNumber",
+      "type": "string",
+      "title": "The Homephonenumber Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "ddddd"
+      ]
+    },
+    "notes": {
+      "$id": "/properties/notes",
+      "type": "string",
+      "title": "The Notes Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "sdsadasd"
+      ]
+    },
+    "status": {
+      "$id": "/properties/status",
+      "type": "boolean",
+      "title": "The Status Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": false,
+      "examples": [
+        true
+      ]
+    },
+    "online": {
+      "$id": "/properties/online",
+      "type": "boolean",
+      "title": "The Online Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": false,
+      "examples": [
+        true
+      ]
+    },
+    "rating": {
+      "$id": "/properties/rating",
+      "type": "number",
+      "title": "The Rating Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": 0.0,
+      "examples": [
+        2.5
+      ]
+    },
+    "idNumber": {
+      "$id": "/properties/idNumber",
+      "type": "string",
+      "title": "The Idnumber Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "333"
+      ]
+    },
+    "licenseNumber": {
+      "$id": "/properties/licenseNumber",
+      "type": "string",
+      "title": "The Licensenumber Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "3333"
+      ]
+    },
+    "carLicenseNumber": {
+      "$id": "/properties/carLicenseNumber",
+      "type": "string",
+      "title": "The Carlicensenumber Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "3333"
+      ]
+    },
+    "carLicenseExpiryDate": {
+      "$id": "/properties/carLicenseExpiryDate",
+      "type": "integer",
+      "title": "The Carlicenseexpirydate Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": 0,
+      "examples": [
+        1516493242899
+      ]
+    },
+    "carLicenseCity": {
+      "$id": "/properties/carLicenseCity",
+      "type": "integer",
+      "title": "The Carlicensecity Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": 0,
+      "examples": [
+        12
+      ]
+    },
+    "birthDate": {
+      "$id": "/properties/birthDate",
+      "type": "integer",
+      "title": "The Birthdate Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": 0,
+      "examples": [
+        1516493242899
+      ]
+    },
+    "credit": {
+      "$id": "/properties/credit",
+      "type": "integer",
+      "title": "The Credit Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": 0,
+      "examples": [
+        222
+      ]
+    }
+  }
+}
