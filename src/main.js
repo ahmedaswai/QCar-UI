@@ -19,7 +19,7 @@ Vue.use(VueGoogleMaps, {
 })
 
 // API
-window.api = 'http://52.232.114.239:8080';
+window.api = 'http://localhost:8080';
 
 
 

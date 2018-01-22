@@ -52,7 +52,7 @@ export const helpers = {
         }
         return fetch(`${api}${url}`, {
             method: 'PUT',
-            body: [...data],
+            body:JSON.stringify(data),
             headers: headers,
         }).then(function(response) {
             return response.json();

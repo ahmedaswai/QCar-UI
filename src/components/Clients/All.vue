@@ -137,6 +137,7 @@ export default {
         },
         deleteSelected(){
             console.log([...this.selectTotDeleteItems]);
+            console.log("selectTotDeleteItems",[...this.selectTotDeleteItems]);
             this.$deleteBulk('/api/drivers/delete/bulk', [...this.selectTotDeleteItems])
                 .then(res => {
                     console.log(res);
