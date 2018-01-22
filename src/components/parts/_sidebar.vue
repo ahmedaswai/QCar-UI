@@ -12,14 +12,23 @@
           </div>
           <!-- Sidebar Navidation Menus-->
           <ul class="list-unstyled">
-            <li class="active"> <a href="index.html"><i class="icon-home"></i>الرئيسية</a></li>
-            <li><a href="#dashvariants" aria-expanded="false" data-toggle="collapse">
+            <li> <a href="index.html"><i class="icon-home"></i>الرئيسية</a></li>
+            <li><a href="#clients_menu" aria-expanded="false" data-toggle="collapse">
                 <i class="icon-user"></i>إدارة العملاء</a>
-                <ul id="dashvariants" class="collapse list-unstyled">
+                <ul id="clients_menu" class="collapse list-unstyled">
                     <li><router-link :to="{path: '/clients/new'}">أضف عميل</router-link></li>
                     <li><router-link :to="{path: '/clients/all'}">بيانات العملاء</router-link></li>
-                    <li><router-link :to="{path: '/clients/requests'}">الطلبات</router-link></li>
-                    <li><router-link :to="{path: '/clients/bills'}">فواتير العملاء</router-link></li>
+                    <!-- <li><router-link :to="{path: '/clients/requests'}">الطلبات</router-link></li> -->
+                    <!-- <li><router-link :to="{path: '/clients/bills'}">فواتير العملاء</router-link></li> -->
+                </ul>
+            </li>
+            <li><a href="#drivers_menu" aria-expanded="false" data-toggle="collapse">
+                <i class="icon-user"></i>إدارة السائقين</a>
+                <ul id="drivers_menu" class="collapse list-unstyled">
+                    <li><router-link :to="{path: '/drivers/new'}">أضف سائق</router-link></li>
+                    <li><router-link :to="{path: '/drivers/all'}">بيانات السائقين</router-link></li>
+                    <!-- <li><router-link :to="{path: '/clients/requests'}">الطلبات</router-link></li> -->
+                    <!-- <li><router-link :to="{path: '/clients/bills'}">فواتير العملاء</router-link></li> -->
                 </ul>
             </li>
           </ul>

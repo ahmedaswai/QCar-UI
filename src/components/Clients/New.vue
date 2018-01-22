@@ -94,6 +94,9 @@ export default {
             this.$post('/api/users', this.newUser)
                 .then((res) => {
                     console.log(res);
+                    if(res.sc === 200){
+                        this.$router.push('/clients/all')
+                    }
                 }).catch((err) => {
                     console.log(err);
                 })

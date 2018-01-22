@@ -33,6 +33,10 @@ import sidebar from '@/components/parts/_sidebar';
 
 export default {
     name: '_____',
+    components: {
+        navbar,
+        sidebar
+    },
     data () {
         return {
 

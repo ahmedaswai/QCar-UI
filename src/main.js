@@ -3,53 +3,30 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
+// import axios from 'axios'
+// import VueAxios from 'vue-axios'
+import * as VueGoogleMaps from 'vue2-google-maps'
+import * as helper from './helpers';
+const helpers = helper.helpers;
 
-Vue.use(VueAxios, axios)
+// Vue.use(VueAxios, axios)
+// Vue2 Google Maps https://www.npmjs.com/package/vue2-google-maps
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyDpbFS43PcKdhQEIE_5wkVitHPr9y6MUnc',
+    libraries: 'places',
+  }
+})
+
 // API
 window.api = 'http://52.232.114.239:8080';
 
 
-// Axios Globals
-// axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';
-// console.log(axios.defaults.headers);
-// axios.defaults.baseURL = 'https://api.example.com';
-// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-// axios.interceptors.request.use(function (config) {
-//     console.log(config);
-//     return config;
-//     }, function (error) {
-//     console.log(error);
-//     return Promise.reject(error);
-// });
-
 
 // Global Methods
-Vue.prototype.$post = function(url, data, headers){
-    const self = this;
-    if(!headers) {
-        headers = {
-            "Content-Type": "application/json;charset=utf-8",
-            "q-car-auth": localStorage.getItem('Q_Car__user_token')
-        };
-        console.log(localStorage.getItem('Q_Car__user_token'));
-    }
-
-    return fetch(`${api}${url}`, {
-        method: 'post',
-        body: JSON.stringify(data),
-        headers: headers,
-    }).then(function(response) {
-        return response.json();
-    }).then(function(data) {
-        if(data.sc === 401){
-            console.log('401, WTF!!!');
-            // return self.$router.push('/')
-        }
-        return data;
-    });
-}
+Vue.prototype.$post = helpers.post
+Vue.prototype.$get = helpers.get
+Vue.prototype.$deleteBulk = helpers.deleteBulk
 
 Vue.config.productionTip = false
 

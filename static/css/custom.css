@@ -110,10 +110,39 @@ input.input-material ~ label{
 select{
     padding: 0 .75rem !important;
 }
-
-
-
-
+.btns{
+    text-align: right;
+    padding: 10px 0
+}
+.table-badge{
+    color: #fff;
+    font-size: 22px;
+}
+.table-badge.green{
+    color: #2ecc71;
+}
+.table-badge.red{
+    color: #e74c3c;
+}
+.i-checks input{
+    /* display: none !important */
+    /* opacity: .6 */
+}
+.checkbox-template::before, .radio-template::before{
+    margin-left: 0;
+    margin-right: -3px;
+}
+.checkbox-template::after, .radio-template::after{
+    left: -1px;
+}
+.map-wrapper{
+    width: 100%;
+    height: 350px;
+}
+.modal-header .close{
+    padding: 0 !important;
+    margin: 0 !important
+}
 
 
 
