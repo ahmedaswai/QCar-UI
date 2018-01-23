@@ -1,14 +1,25 @@
 <template>
     <div id="app">
-        <!-- <v-content> -->
-            <router-view/>
-        <!-- </v-content> -->
+        <navbar></navbar>
+        <sidebar></sidebar>
+        <section class="content">
+            <div class="container-fluid">
+                <router-view/>
+            </div>
+        </section>
     </div>
 </template>
 
 <script>
+import navbar from '@/components/parts/_navbar';
+import sidebar from '@/components/parts/_sidebar';
+
 export default {
-    name: 'App'
+    name: 'App',
+    components: {
+        navbar,
+        sidebar
+    },
 }
 </script>
 

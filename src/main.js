@@ -18,8 +18,14 @@ Vue.use(VueGoogleMaps, {
   }
 })
 
-// API
-window.api = 'http://localhost:8080';
+// API url
+// if (location.hostname === "localhost" || location.hostname === "127.0.0.1"){
+//     window.api = 'http://localhost:8080';
+// }else{
+//     window.api = 'http://52.232.114.239:8080';
+// }
+window.api = 'http://52.232.114.239:8080';
+
 
 
 
@@ -27,6 +33,10 @@ window.api = 'http://localhost:8080';
 Vue.prototype.$post = helpers.post
 Vue.prototype.$get = helpers.get
 Vue.prototype.$deleteBulk = helpers.deleteBulk
+
+// Global Filters
+Vue.filter('userType', helpers.userType);
+
 
 Vue.config.productionTip = false
 

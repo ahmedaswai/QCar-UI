@@ -151,7 +151,6 @@ export default {
     methods: {
         save(){
             this.newDriver.homeLocation.coordinates = [this.marker.lat, this.marker.lng]
-
             // console.log(this.newDriver);
             this.$post('/api/drivers', this.newDriver)
                 .then((res) => {

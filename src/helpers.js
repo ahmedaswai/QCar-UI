@@ -63,5 +63,17 @@ export const helpers = {
             }
             return data;
         });
+    },
+
+
+    // Filters
+    userType: function(data){
+        // Admin(0),Owner(1),Driver(2),Customer(3)
+        let type = 'غير محدد';
+        if( data == 0 ) type = 'مدير نظام'
+        if( data == 1 ) type = 'مالك'
+        if( data == 2 ) type = 'سائق'
+        if( data == 3 ) type = 'عميل'
+        return type
     }
 }

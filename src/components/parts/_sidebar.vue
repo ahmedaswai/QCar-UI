@@ -1,39 +1,60 @@
 <template>
-    <div class="sidebar-component">
-        <!-- Side Navbar -->
-        <nav class="side-navbar">
-          <!-- Sidebar Header-->
-          <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="/static/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
-            <div class="title">
-              <h1 class="h4">إسم المدير</h1>
-              <p>مدير</p>
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+        <!-- User Info -->
+        <div class="user-info">
+            <!-- <div class="image">
+                <img src="/static/images/user.png" width="48" height="48" alt="User" />
+            </div> -->
+            <div class="info-container">
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">إسم المستخدم</div>
+                <!-- <div class="email">john.doe@example.com</div> -->
+                <div class="btn-group user-helper-dropdown">
+                    <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
-          <!-- Sidebar Navidation Menus-->
-          <ul class="list-unstyled">
-            <li> <a href="index.html"><i class="icon-home"></i>الرئيسية</a></li>
-            <li><a href="#clients_menu" aria-expanded="false" data-toggle="collapse">
-                <i class="icon-user"></i>إدارة العملاء</a>
-                <ul id="clients_menu" class="collapse list-unstyled">
-                    <li><router-link :to="{path: '/clients/new'}">أضف عميل</router-link></li>
-                    <li><router-link :to="{path: '/clients/all'}">بيانات العملاء</router-link></li>
-                    <!-- <li><router-link :to="{path: '/clients/requests'}">الطلبات</router-link></li> -->
-                    <!-- <li><router-link :to="{path: '/clients/bills'}">فواتير العملاء</router-link></li> -->
-                </ul>
-            </li>
-            <li><a href="#drivers_menu" aria-expanded="false" data-toggle="collapse">
-                <i class="icon-user"></i>إدارة السائقين</a>
-                <ul id="drivers_menu" class="collapse list-unstyled">
-                    <li><router-link :to="{path: '/drivers/new'}">أضف سائق</router-link></li>
-                    <li><router-link :to="{path: '/drivers/all'}">بيانات السائقين</router-link></li>
-                    <!-- <li><router-link :to="{path: '/clients/requests'}">الطلبات</router-link></li> -->
-                    <!-- <li><router-link :to="{path: '/clients/bills'}">فواتير العملاء</router-link></li> -->
-                </ul>
-            </li>
-          </ul>
-        </nav>
-    </div>
+        </div>
+        <!-- #User Info -->
+        <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+                <li class="header">القائمة الرئيسية</li>
+                <li>
+                    <router-link :to="{path: '/dashboard'}">
+                        <i class="material-icons">home</i>
+                        <span>الرئيسية</span>
+                    </router-link>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">people</i>
+                        <span>إدارة العملاء</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <router-link :to="{path: '/clients/all'}">بيانات العملاء</router-link>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">drive_eta</i>
+                        <span>إدارة السائقين</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <router-link :to="{path: '/drivers/all'}">بيانات السائقين</router-link>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- #Menu -->
+    </aside>
+    <!-- #END# Left Sidebar -->
 </template>
 
 <script>
@@ -45,7 +66,84 @@ export default {
         }
     },
     mounted(){
+        //==========================================================================================================================
 
+        /* DropdownMenu - Function =================================================================================================
+        *  You can manage the dropdown menu
+        *
+        */
+
+        $.AdminBSB.dropdownMenu = {
+            activate: function () {
+                var _this = this;
+
+                $('.dropdown, .dropup, .btn-group').on({
+                    "show.bs.dropdown": function () {
+                        var dropdown = _this.dropdownEffect(this);
+                        _this.dropdownEffectStart(dropdown, dropdown.effectIn);
+                    },
+                    "shown.bs.dropdown": function () {
+                        var dropdown = _this.dropdownEffect(this);
+                        if (dropdown.effectIn && dropdown.effectOut) {
+                            _this.dropdownEffectEnd(dropdown, function () { });
+                        }
+                    },
+                    "hide.bs.dropdown": function (e) {
+                        var dropdown = _this.dropdownEffect(this);
+                        if (dropdown.effectOut) {
+                            e.preventDefault();
+                            _this.dropdownEffectStart(dropdown, dropdown.effectOut);
+                            _this.dropdownEffectEnd(dropdown, function () {
+                                dropdown.dropdown.removeClass('open');
+                            });
+                        }
+                    }
+                });
+
+                //Set Waves
+                Waves.attach('.dropdown-menu li a', ['waves-block']);
+                Waves.init();
+            },
+            dropdownEffect: function (target) {
+                var effectIn = $.AdminBSB.options.dropdownMenu.effectIn, effectOut = $.AdminBSB.options.dropdownMenu.effectOut;
+                var dropdown = $(target), dropdownMenu = $('.dropdown-menu', target);
+
+                if (dropdown.length > 0) {
+                    var udEffectIn = dropdown.data('effect-in');
+                    var udEffectOut = dropdown.data('effect-out');
+                    if (udEffectIn !== undefined) { effectIn = udEffectIn; }
+                    if (udEffectOut !== undefined) { effectOut = udEffectOut; }
+                }
+
+                return {
+                    target: target,
+                    dropdown: dropdown,
+                    dropdownMenu: dropdownMenu,
+                    effectIn: effectIn,
+                    effectOut: effectOut
+                };
+            },
+            dropdownEffectStart: function (data, effectToStart) {
+                if (effectToStart) {
+                    data.dropdown.addClass('dropdown-animating');
+                    data.dropdownMenu.addClass('animated dropdown-animated');
+                    data.dropdownMenu.addClass(effectToStart);
+                }
+            },
+            dropdownEffectEnd: function (data, callback) {
+                var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                data.dropdown.one(animationEnd, function () {
+                    data.dropdown.removeClass('dropdown-animating');
+                    data.dropdownMenu.removeClass('animated dropdown-animated');
+                    data.dropdownMenu.removeClass(data.effectIn);
+                    data.dropdownMenu.removeClass(data.effectOut);
+
+                    if (typeof callback == 'function') {
+                        callback();
+                    }
+                });
+            }
+        }
     }
 }
 </script>
