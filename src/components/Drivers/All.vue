@@ -341,15 +341,8 @@
 </template>
 
 <script>
-import navbar from '@/components/parts/_navbar';
-import sidebar from '@/components/parts/_sidebar';
-
 export default {
     name: 'all-clients',
-    components: {
-        navbar,
-        sidebar
-    },
     data () {
         return {
             drivers: [],
@@ -419,7 +412,7 @@ export default {
         },
         save(){
             this.newDriver.homeLocation.coordinates = [this.marker.lat, this.marker.lng]
-            
+
             this.$post('/api/drivers', this.newDriver)
                 .then((res) => {
                     console.log(res);

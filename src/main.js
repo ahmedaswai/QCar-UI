@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+// import VueTimepicker from 'vue2-timepicker'
 // import axios from 'axios'
 // import VueAxios from 'vue-axios'
 import * as VueGoogleMaps from 'vue2-google-maps'
@@ -37,6 +38,8 @@ Vue.prototype.$deleteBulk = helpers.deleteBulk
 // Global Filters
 Vue.filter('userType', helpers.userType);
 
+// Timer picker
+// Vue.use(VueTimepicker)
 
 Vue.config.productionTip = false
 

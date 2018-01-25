@@ -53,6 +53,9 @@
     box-shadow: none;
 }
 .show-info .filter-option{text-align: right !important;}
+.form{
+    padding: 15px;
+}
 
 
 /* Login */
