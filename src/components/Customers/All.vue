@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="block-header">
-            <h2>جميع السائقين</h2>
+            <h2>جميع العملاء</h2>
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -17,7 +17,7 @@
                         <button
                             class="btn btn-primary btn-circle waves-effect waves-circle waves-float"
                             data-toggle="modal"
-                            data-target="#newDriver">
+                            data-target="#newCustomer">
                             <i class="material-icons">add</i>
                         </button>
                     </div>
@@ -26,10 +26,10 @@
                         <thead>
                             <tr>
                             <th>#</th>
-                            <th>إسم السائق</th>
+                            <th>إسم العميل</th>
                             <th>أرقام الهواتف</th>
                             <th>الموقع</th>
-                            <th class="text-center">حالة السائق</th>
+                            <th class="text-center">حالة العميل</th>
                             <th>مسح</th>
                             <th>تفاصيل</th>
                             <th>تعديل</th>
@@ -42,8 +42,8 @@
                                 <td>{{user.mobileNumber1}} - {{user.mobileNumber2}} - {{user.homePhoneNumber}}</td>
                                 <td>
                                     <a
-                                        v-if="user.homeLocation"
-                                        :href="`http://maps.google.com/?q=${user.homeLocation.coordinates[0]},${user.homeLocation.coordinates[1]}`"
+                                        v-if="user.currentLocation"
+                                        :href="`http://maps.google.com/?q=${user.currentLocation.coordinates[0]},${user.currentLocation.coordinates[1]}`"
                                         target="_blank"
                                         class="btn btn-primary map-btn"
                                     >
@@ -65,9 +65,9 @@
                                 <td>
                                     <a
                                         data-toggle="modal"
-                                        data-target="#driverDetails"
+                                        data-target="#customerDetails"
                                         class="btn btn-info"
-                                        @click="driverDetails(user)"
+                                        @click="customerDetails(user)"
                                     >
 										<i class="material-icons">list</i>
 									</a>
@@ -103,17 +103,17 @@
             </div>
         </div>
         <!-- New user -->
-        <div id="newDriver" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+        <div id="newCustomer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
             <div role="document" class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 id="exampleModalLabel" class="modal-title">إضافة مستخدم جديد</h4>
+                        <h4 id="exampleModalLabel" class="modal-title">إضافة عميل جديد</h4>
                         <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
                     </div>
                     <div class="modal-body text-right">
 
                         <div class="form-group">
-                            <label class="form-control-label">موقع السائق</label>
+                            <label class="form-control-label">موقع العميل</label>
                             <gmap-map
                                 :center="{lat:29.310297, lng:30.845376}"
                                 :zoom="10"
@@ -129,56 +129,38 @@
                         </div>
                         <div class="form-group">
                             <div class="form-line">
-                                <label class="form-control-label">إسم السائق</label>
-                                <input type="text" class="form-control" v-model="newDriver.fullName">
+                                <label class="form-control-label">إسم العميل</label>
+                                <input type="text" class="form-control" v-model="newCustomer.fullName">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-line">
                                 <label class="form-control-label">رقم التلفون الأول</label>
-                                <input type="text" class="form-control" v-model="newDriver.mobileNumber1">
+                                <input type="text" class="form-control" v-model="newCustomer.mobileNumber1">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-line">
                                 <label class="form-control-label">رقم التلفون الثاني</label>
-                                <input type="text" class="form-control" v-model="newDriver.mobileNumber2">
+                                <input type="text" class="form-control" v-model="newCustomer.mobileNumber2">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-line">
                                 <label class="form-control-label">رقم تليفون المنزل</label>
-                                <input type="text" class="form-control" v-model="newDriver.homePhoneNumber">
+                                <input type="text" class="form-control" v-model="newCustomer.homePhoneNumber">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-line">
-                                <label class="form-control-label">رقم البطاقة</label>
-                                <input type="text" class="form-control" v-model="newDriver.idNumber">
+                                <label class="form-control-label">عنوان العميل</label>
+                                <input type="text" class="form-control" v-model="newCustomer.homeAddress">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-line">
-                                <label class="form-control-label">رقم رخصة السواقة</label>
-                                <input type="text" class="form-control" v-model="newDriver.licenseNumber">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-line">
-                                <label class="form-control-label">رقم رخصة السيارة</label>
-                                <input type="text" class="form-control" v-model="newDriver.carLicenseNumber">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-line">
-                                <label class="form-control-label">تاريخ إنتهاء رخصة القيادة</label>
-                                <input type="date" class="form-control" v-model="newDriver.carLicenseExpiryDate">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-line">
-                                <label class="form-control-label">مدينة الترخيص</label>
-                                <select class="form-control" v-model="newDriver.carLicenseCity">
+                                <label class="form-control-label">المدينة</label>
+                                <select class="form-control" v-model="newCustomer.city">
                                     <option value="0">الفيوم</option>
                                     <option value="1">القاهرة</option>
                                     <option value="2">بني سويف</option>
@@ -187,26 +169,20 @@
                         </div>
                         <div class="form-group">
                             <div class="form-line">
-                                <label class="form-control-label">تاريخ ميلاد السائق</label>
-                                <input type="date" class="form-control" v-model="newDriver.birthDate">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-line">
                                 <label class="form-control-label">ملاحظات</label>
-                                <textarea  rows="8" class="form-control" v-model="newDriver.notes"></textarea>
+                                <textarea  rows="8" class="form-control" v-model="newCustomer.notes"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-line">
-                                <label class="form-control-label">رصيد السائق</label>
-                                <input type="number" class="form-control" v-model="newDriver.credit">
+                                <label class="form-control-label">رصيد العميل</label>
+                                <input type="number" class="form-control" v-model="newCustomer.credit">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-control-label">الحالة</label>
                             <div class="switch">
-                                <label>غير فعال<input type="checkbox" v-model="newDriver.status"><span class="lever"></span>فعال</label>
+                                <label>غير فعال<input type="checkbox" v-model="newCustomer.status"><span class="lever"></span>فعال</label>
                             </div>
                         </div>
 
@@ -222,82 +198,42 @@
 
 
         <!-- Driver Details -->
-        <div id="driverDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+        <div id="customerDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
             <div role="document" class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 id="exampleModalLabel" class="modal-title">تفاصيل السائق</h4>
+                        <h4 id="exampleModalLabel" class="modal-title">تفاصيل العميل</h4>
                         <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
                     </div>
-                    <div class="modal-body text-right">
-
-                        <!-- <div class="form-group">
-                            <label class="form-control-label">موقع السائق</label>
-                            <gmap-map
-                                :center="{lat:29.310297, lng:30.845376}"
-                                :zoom="10"
-                                class="map-wrapper"
-                                @click="mapClicked"
-                                >
-                                <gmap-marker
-                                    :position="marker"
-                                    @click="center=marker"
-                                    v-if="showMarker"
-                                    ></gmap-marker>
-                            </gmap-map>
-                        </div> -->
+                    <div class="modal-body text-right row">
                         <div class="col-xs-4 show-info">
                             <div class="">
-                                <label class="form-control-label">إسم السائق</label>
-                                <input type="text" class="form-control" disabled v-model="driverDetailsObj.fullName || 'غير محدد'">
+                                <label class="form-control-label">إسم العميل</label>
+                                <input type="text" class="form-control" disabled v-model="customerDetailsObj.fullName || 'غير محدد'">
                             </div>
                         </div>
                         <div class="col-xs-4 show-info">
                             <div class="">
                                 <label class="form-control-label">رقم التلفون الأول</label>
-                                <input type="text" class="form-control" disabled v-model="driverDetailsObj.mobileNumber1">
+                                <input type="text" class="form-control" disabled v-model="customerDetailsObj.mobileNumber1">
                             </div>
                         </div>
                         <div class="col-xs-4 show-info">
                             <div class="">
                                 <label class="form-control-label">رقم التلفون الثاني</label>
-                                <input type="text" class="form-control" disabled v-model="driverDetailsObj.mobileNumber2">
+                                <input type="text" class="form-control" disabled v-model="customerDetailsObj.mobileNumber2">
                             </div>
                         </div>
                         <div class="col-xs-4 show-info">
                             <div class="">
                                 <label class="form-control-label">رقم تليفون المنزل</label>
-                                <input type="text" class="form-control" disabled v-model="driverDetailsObj.homePhoneNumber">
+                                <input type="text" class="form-control" disabled v-model="customerDetailsObj.homePhoneNumber">
                             </div>
                         </div>
                         <div class="col-xs-4 show-info">
                             <div class="">
-                                <label class="form-control-label">رقم البطاقة</label>
-                                <input type="text" class="form-control" disabled v-model="driverDetailsObj.idNumber">
-                            </div>
-                        </div>
-                        <div class="col-xs-4 show-info">
-                            <div class="">
-                                <label class="form-control-label">رقم رخصة السواقة</label>
-                                <input type="text" class="form-control" disabled v-model="driverDetailsObj.licenseNumber">
-                            </div>
-                        </div>
-                        <div class="col-xs-4 show-info">
-                            <div class="">
-                                <label class="form-control-label">رقم رخصة السيارة</label>
-                                <input type="text" class="form-control" disabled v-model="driverDetailsObj.carLicenseNumber">
-                            </div>
-                        </div>
-                        <div class="col-xs-4 show-info">
-                            <div class="">
-                                <label class="form-control-label">تاريخ إنتهاء رخصة القيادة</label>
-                                <div>{{driverDetailsObj.carLicenseExpiryDate}}</div>
-                            </div>
-                        </div>
-                        <div class="col-xs-4 show-info">
-                            <div class="">
-                                <label class="form-control-label">مدينة الترخيص</label>
-                                <select class="form-control" disabled v-model="driverDetailsObj.carLicenseCity">
+                                <label class="form-control-label">المدينة</label>
+                                <select class="form-control" disabled v-model="customerDetailsObj.city">
                                     <option value="0">الفيوم</option>
                                     <option value="1">القاهرة</option>
                                     <option value="2">بني سويف</option>
@@ -306,26 +242,26 @@
                         </div>
                         <div class="col-xs-4 show-info">
                             <div class="">
-                                <label class="form-control-label">تاريخ ميلاد السائق</label>
-                                <div>{{driverDetailsObj.birthDate}}</div>
+                                <label class="form-control-label">عنوان العميل</label>
+                                <div>{{customerDetailsObj.homeAddress}}</div>
                             </div>
                         </div>
-                        <div class="col-xs-4 show-info">
+                        <div class="col-xs-8 show-info">
                             <div class="">
                                 <label class="form-control-label">ملاحظات</label>
-                                <div>{{driverDetailsObj.notes}}</div>
+                                <div>{{customerDetailsObj.notes}}</div>
                             </div>
                         </div>
                         <div class="col-xs-4 show-info">
                             <div class="">
-                                <label class="form-control-label">رصيد السائق</label>
-                                <input type="number" class="form-control" disabled v-model="driverDetailsObj.credit">
+                                <label class="form-control-label">رصيد العميل</label>
+                                <input type="number" class="form-control" disabled v-model="customerDetailsObj.credit">
                             </div>
                         </div>
                         <div class="col-xs-4 show-info">
                             <label class="form-control-label">الحالة</label>
                             <div class="switch">
-                                <label>غير فعال<input type="checkbox" disabled v-model="driverDetailsObj.status"><span class="lever"></span>فعال</label>
+                                <label>غير فعال<input type="checkbox" disabled v-model="customerDetailsObj.status"><span class="lever"></span>فعال</label>
                             </div>
                         </div>
 
@@ -353,23 +289,20 @@ export default {
     data () {
         return {
             drivers: [],
-            newDriver: {
+            newCustomer: {
                 fullName: 'محمد حسنين',
                 mobileNumber1: '01000000000',
                 mobileNumber2: '01000000001',
                 homePhoneNumber: '084123123',
-                idNumber: '123123',
-                licenseNumber: '123123',
-                carLicenseNumber: '123123',
-                carLicenseExpiryDate: '2017-03-20',
-                carLicenseCity: 0,
-                birthDate: '1990-09-21',
-                notes: 'some notes',
+                homeAddress: 'حي الجامعة - الفيوم',
+                inTrip: false,
+                city: 0,
+                notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
                 status: false,
                 credit: 10,
-                homeLocation: {}
+                currentLocation: {}
             },
-            driverDetailsObj: {},
+            customerDetailsObj: {},
             marker: {
                 lat:29.310297,
                 lng:30.845376
@@ -390,7 +323,7 @@ export default {
     },
     methods: {
         getData(){
-            this.$get('/api/drivers')
+            this.$get('/api/customers')
                 .then(res => {
                     console.log(res);
                     this.drivers = res.rs
@@ -418,9 +351,9 @@ export default {
                 })
         },
         save(){
-            this.newDriver.homeLocation.coordinates = [this.marker.lat, this.marker.lng]
-            
-            this.$post('/api/drivers', this.newDriver)
+            this.newCustomer.currentLocation.coordinates = [this.marker.lat, this.marker.lng]
+
+            this.$post('/api/customers', this.newCustomer)
                 .then((res) => {
                     console.log(res);
                     if(res.sc === 200){
@@ -436,13 +369,13 @@ export default {
             this.marker.lat = e.latLng.lat()
             this.marker.lng = e.latLng.lng()
         },
-        driverDetails(user){
-            console.log(this.driverDetails, user);
-            console.log(this.driverDetails);
+        customerDetails(user){
+            console.log(this.customerDetails, user);
+            console.log(this.customerDetails);
             user.birthDate = this.getDateFormated(user.birthDate)
             user.carLicenseExpiryDate = this.getDateFormated(user.carLicenseExpiryDate)
             console.log(user.birthDate, user.carLicenseExpiryDate);
-            this.driverDetailsObj = user;
+            this.customerDetailsObj = user;
         },
         getDateFormated(date){
             let d = new Date(date);

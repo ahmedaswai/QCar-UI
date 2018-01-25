@@ -2,8 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
 import Dashboard from '@/components/Dashboard'
-import AllC from '@/components/Clients/All'
-import AllD from '@/components/Drivers/All'
+import AllUsers from '@/components/Users/All'
+import AllDrivers from '@/components/Drivers/All'
+import AllCustomers from '@/components/Customers/All'
 
 Vue.use(Router)
 
@@ -19,19 +20,25 @@ export default new Router({
             component: Dashboard
         },
 
-        // Clients
+        // Users
         {
-            path: '/clients/all',
-            name: 'AllC',
-            component: AllC
+            path: '/users/all',
+            name: 'AllUsers',
+            component: AllUsers
         },
-
 
         // Drivers
         {
             path: '/drivers/all',
-            name: 'AllD',
-            component: AllD
+            name: 'AllDrivers',
+            component: AllDrivers
+        },
+
+        // Customers
+        {
+            path: '/customers/all',
+            name: 'AllCustomers',
+            component: AllCustomers
         },
     ]
 })

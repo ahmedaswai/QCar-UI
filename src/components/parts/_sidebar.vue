@@ -31,11 +31,11 @@
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">people</i>
-                        <span>إدارة العملاء</span>
+                        <span>إدارة المستخدمين</span>
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <router-link :to="{path: '/clients/all'}">بيانات العملاء</router-link>
+                            <router-link :to="{path: '/users/all'}">بيانات المستخدمين</router-link>
                         </li>
                     </ul>
                 </li>
@@ -47,6 +47,17 @@
                     <ul class="ml-menu">
                         <li>
                             <router-link :to="{path: '/drivers/all'}">بيانات السائقين</router-link>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">attach_money</i>
+                        <span>إدارة العملاء</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <router-link :to="{path: '/customers/all'}">بيانات العملاء</router-link>
                         </li>
                     </ul>
                 </li>
