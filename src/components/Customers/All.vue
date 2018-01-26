@@ -36,7 +36,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(user, i) in drivers">
+                            <tr v-for="(user, i) in clients">
                                 <th scope="row">{{i + 1}}</th>
                                 <td>{{user.fullName || 'غير محدد'}}</td>
                                 <td>{{user.mobileNumber1}} - {{user.mobileNumber2}} - {{user.homePhoneNumber}}</td>
@@ -281,7 +281,7 @@ export default {
     name: 'all-clients',
     data () {
         return {
-            drivers: [],
+            clients: [],
             newCustomer: {
                 fullName: 'محمد حسنين',
                 mobileNumber1: '01000000000',
@@ -319,7 +319,7 @@ export default {
             this.$get('/api/customers')
                 .then(res => {
                     console.log(res);
-                    this.drivers = res.rs
+                    this.clients = res.rs
                 }).catch(err => {
                     console.log(err);
                 })
@@ -334,7 +334,7 @@ export default {
             console.log(this.selectTotDeleteItems);
         },
         deleteSelected(){
-            this.$deleteBulk('/api/drivers/delete/bulk', [...this.selectTotDeleteItems])
+            this.$deleteBulk('/api/clients/delete/bulk', [...this.selectTotDeleteItems])
                 .then(res => {
                     console.log(res);
                     $('.modal').modal('hide')

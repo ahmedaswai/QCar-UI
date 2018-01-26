@@ -71,7 +71,6 @@ export default {
             };
 
             this.$post('/login', data).then((res) => {
-                console.log('posting..', res);
                 if (res.sc === 200) {
                     localStorage.setItem('Q_Car__user_info', JSON.stringify(res.rs.user))
                     localStorage.setItem('Q_Car__user_token', res.rs.token)

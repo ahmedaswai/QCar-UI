@@ -56,6 +56,41 @@
 .form{
     padding: 15px;
 }
+.time-picker{
+    display: block !important;
+    margin-top: 10px;
+    width: 100% !important;
+    direction: ltr;
+}
+.time-picker input.display-time{width: 100% !important}
+.input-with-border{
+    border: 1px solid #d2d2d2 !important;
+}
+.ltr{
+    direction: ltr !important
+}
+.select2-container{
+    width: 100% !important;
+    display: block;
+}
+.custome-row{
+    margin-right: 0
+}
+.custome-row .col-xs-6:first-of-type{
+    padding-right: 0
+}
+.custome-row .col-xs-6:last-of-type{
+    padding-left: 0
+}
+.dtp{
+    direction: ltr !important
+}
+
+
+
+
+
+
 
 
 /* Login */
@@ -91,7 +126,8 @@
 body,html{
     /* overflow-x: hidden; */
 }
-[type="checkbox"]:not(:checked), [type="checkbox"]:checked{
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked,
+[type="radio"]:not(:checked), [type="radio"]:checked{
     display: none;
 }
 .sidebar{
@@ -122,4 +158,12 @@ section.content{
 .modal .modal-header .modal-title{float: right;}
 .sidebar{
     box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1)
+}
+.info-box.hover-expand-effect:after{
+    right: 80px;
+    left: auto;
+}
+pre{
+    text-align: left;
+    direction: ltr;
 }

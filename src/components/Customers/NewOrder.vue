@@ -10,7 +10,7 @@
                     <div class="form-group">
                         <label class="form-control-label">مكان الطلب</label>
                         <gmap-map
-                            :center="{lat:29.310297, lng:30.845376}"
+                            :center="current.center"
                             :zoom="10"
                             class="map-wrapper"
                         >
@@ -48,14 +48,73 @@
                             ></gmap-marker>
                         </gmap-map>
                     </div>
-                    <div class="form-group">
-                        <label class="form-control-label">موعد بدء الرحلة</label>
-                        <vue-timepicker format="HH:mm:ss"></vue-timepicker>
+                    <div class="form-group row custome-row">
+                        <div class="col-xs-6">
+                            <label class="form-control-label">موعد بدء الرحلة</label>
+                            <input
+                                type="text"
+                                class="datetimepicker input-with-border form-control"
+                                placeholder="برجاء إختبار تاريخ و توقيت بدء الرحلة"
+                                data-timeType="tripStartTime"
+                            >
+                            <!-- <vue-timepicker format="HH:mm" v-model="order.tripStartTime"></vue-timepicker> -->
+                        </div>
+                        <div class="col-xs-6">
+                            <label class="form-control-label">موعد إنتهاء الرحلة</label>
+                            <input
+                                type="text"
+                                class="datetimepicker input-with-border form-control"
+                                placeholder="برجاء إختبار تاريخ و توقيت إنتهاء الرحلة"
+                                data-timeType="tripEndTime"
+                                >
+                            <!-- <vue-timepicker format="HH:mm" ></vue-timepicker> -->
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <label class="form-control-label">طريقة الدفع</label>
+                        <div></div>
+                        <input name="payment-method" type="radio" id="radio_1" value="0" v-model="order.paymentMethod" />
+                        <label for="radio_1">نقدي</label>
 
+                        <input name="payment-method" type="radio" id="radio_2" value="1" v-model="order.paymentMethod" />
+                        <label for="radio_2">رصيد العميل</label>
+
+                        <input name="payment-method" type="radio" id="radio_3" value="2" v-model="order.paymentMethod" />
+                        <label for="radio_3">بطاقة إئتمان</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">العميل</label>
+
+                        <select class="selectClient" name="state" v-if="clients.length > 0" v-model="order.customer">
+                            <option :value="user.id" v-for="user in clients">{{user.fullName}}</option>
+                        </select>
+
+                        <div class="preloader pl-size-xs ltr" v-else>
+                            <div class="spinner-layer pl-red-grey">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">ملاحظات</label>
+                        <textarea class="form-control input-with-border" rows="8" v-model="order.notes"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">الحالة</label>
+                        <div class="switch">
+                            <label>غير فعال<input type="checkbox" v-model="order.status"><span class="lever"></span>فعال</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-block" @click="save">حفظ</button>
                 </div><!--/card-->
             </div><!--/col-lg-12 col-md-12 col-sm-12 col-xs-12-->
         </div><!--row-->
+
 
     </div>
 </template>
@@ -71,6 +130,7 @@ export default {
     data () {
         return {
             current: {
+                center: {lat:29.310297, lng:30.845376},
                 position: {lat:29.310297, lng:30.845376},
                 showMarker: false
             },
@@ -82,21 +142,81 @@ export default {
                 showMarker: false,
                 position: {lat:29.310297, lng:30.845376},
             },
+            clients: [],
+            order: {
+                tripStartTime: 0,
+                tripEndTime: 0,
+                customer: {id: null},
+                orderLocation: {},
+                fromLocation: {},
+                toLocation: {},
+            }
         }
     },
     mounted(){
         this.getCurrentLocation()
+        this.getClients()
+
+        // this.$get('/api/orders')
+        //     .then(res => {
+        //         console.log(res);
+        //     }).catch(err => {
+        //         console.log(err);
+        //     })
+
+        setTimeout(() => {
+            //Datetimepicker plugin
+            let el = $('.datetimepicker')
+            el.bootstrapMaterialDatePicker({
+                format: 'dddd DD MMMM YYYY - HH:mm',
+                clearButton: false,
+                weekStart: 1
+            });
+            el.on('change' , (e, date) => {
+                this.order[e.currentTarget.dataset.timetype] = date.unix()
+            })
+        }, 100)
     },
     methods: {
-        // orderTime
-        // new Date().getTime() / 1000
+        save(){
+            let obj = this.$copy(this.order);
+            obj.orderTime = Math.round(+new Date().getTime() / 1000);
+            obj.orderLocation.coordinates = [this.current.position.lat, this.current.position.lng];
+            obj.fromLocation.coordinates = [this.tripStart.position.lat, this.tripStart.position.lng];
+            obj.toLocation.coordinates = [this.tripEnd.position.lat, this.tripEnd.position.lng];
 
+            obj.paymentMethod = parseInt(obj.paymentMethod);
+
+            this.$post('/api/orders', obj)
+                .then((res) => {
+                    console.log(res);
+                }).catch(err => {
+                    console.log(err);
+                })
+        },
+        getClients(){
+            this.$get('/api/customers')
+                .then(res => {
+                    this.clients = res.rs
+                    setTimeout(() => {
+                        $('.selectClient').select2();
+                        $('.selectClient').on('select2:select', (e) => {
+                            // On client select
+                            this.order.customer.id = e.target.value
+                        });
+                    }, 100)
+                }).catch(err => {
+                    console.log(err);
+                })
+        },
         getCurrentLocation(){
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
                     this.current.showMarker = true
                     this.current.position.lat = position.coords.latitude
                     this.current.position.lng = position.coords.longitude
+                    this.current.center.lat = position.coords.latitude
+                    this.current.center.lng = position.coords.longitude
                 });
             } else {
                 x.innerHTML = "Geolocation is not supported by this browser.";

@@ -1,4 +1,7 @@
 export const helpers = {
+    copy: function(data) {
+        return JSON.parse(JSON.stringify(data))
+    },
     post: function(url, data, headers){
         const self = this;
         if(!headers) {

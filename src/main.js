@@ -34,6 +34,8 @@ window.api = 'http://52.232.114.239:8080';
 Vue.prototype.$post = helpers.post
 Vue.prototype.$get = helpers.get
 Vue.prototype.$deleteBulk = helpers.deleteBulk
+Vue.prototype.$copy = helpers.copy
+
 
 // Global Filters
 Vue.filter('userType', helpers.userType);
