@@ -48,43 +48,48 @@
 
 <script>
 export default {
-    name: 'Login',
-    data () {
-        return {
-            username: 'bmind',
-            password: '123',
-            loading: false
-        }
-    },
-    beforeCreate(){
-        document.body.classList = 'theme-blue login-page ls-closed';
-    },
-    beforeDestroy(){
-        document.body.classList = 'theme-blue';
-    },
-    methods: {
-        login(e){
-            this.loading = true
-            let data = {
-                userName: this.username,
-                password: this.password
-            };
+  name: "Login",
+  data() {
+    return {
+      username: "bmind",
+      password: "123",
+      loading: false
+    };
+  },
+  beforeCreate() {
+    document.body.classList = "theme-blue login-page ls-closed";
+  },
+  beforeDestroy() {
+    document.body.classList = "theme-blue";
+  },
+  methods: {
+    login(e) {
+      this.loading = true;
+      let data = {
+        userName: this.username,
+        password: this.password
+      };
 
-            this.$post('/login', data).then((res) => {
-                if (res.sc === 200) {
-                    localStorage.setItem('Q_Car__user_info', JSON.stringify(res.rs.user))
-                    localStorage.setItem('Q_Car__user_token', res.rs.token)
-                    this.$router.push('/dashboard')
-                }
-                setTimeout(() => {
-                    this.loading = false
-                }, 500)
-            }).catch((err) => {
-                console.log('Err', err);
-            })
-        }
+      this.$post("/login", data)
+        .then(res => {
+          if (res.sc === 200) {
+            localStorage.setItem(
+              "Q_Car__user_info",
+              JSON.stringify(res.rs.user)
+            );
+            localStorage.setItem("Q_Car__user_token", res.rs.token);
+            this.$router.push("/dashboard");
+          }
+          setTimeout(() => {
+            this.loading = false;
+          }, 500);
+        })
+        .catch(err => {
+          console.log("Err", err);
+        });
     }
-}
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -4,16 +4,12 @@
 
 <script>
 export default {
-    name: '_________',
-    data () {
-        return {
-
-        }
-    },
-    methods: {
-
-    }
-}
+  name: "_________",
+  data() {
+    return {};
+  },
+  methods: {}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

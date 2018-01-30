@@ -13,7 +13,7 @@
                     </div>
                     <div class="content">
                         <div class="text">عدد الرحلات</div>
-                        <div class="number">{{data.numberOfOnlineUsers}}</div>
+                        <div class="number">{{data.numberOfTrips}}</div>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                     </div>
                     <div class="content">
                         <div class="text">عدد المستخدمين الفعالين</div>
-                        <div class="number">{{data.numberOfOnlineUsers}}</div>
+                        <div class="number">{{data.numberOfActiveUsers}}</div>
                     </div>
                 </div>
             </div>
@@ -91,29 +91,30 @@
 
 <script>
 export default {
-    name: 'Dashboard',
-    data () {
-        return {
-            data: {},
-            loading: true
-        }
-    },
-    mounted(){
-        this.getData()
-    },
-    methods: {
-        getData(){
-            this.$get('/api/dashboard/landing-page')
-                .then(res => {
-                    console.log(res);
-                    this.loading = false
-                    this.data = res.rs;
-                }).catch(err => {
-                    console.log(err);
-                })
-        }
+  name: "Dashboard",
+  data() {
+    return {
+      data: {},
+      loading: true
+    };
+  },
+  mounted() {
+    this.getData();
+  },
+  methods: {
+    getData() {
+      this.$get("/api/dashboard/landing-page")
+        .then(res => {
+          console.log(res);
+          this.loading = false;
+          this.data = res.rs;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
-}
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

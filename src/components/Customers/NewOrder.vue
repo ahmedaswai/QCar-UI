@@ -57,7 +57,6 @@
                                 placeholder="برجاء إختبار تاريخ و توقيت بدء الرحلة"
                                 data-timeType="tripStartTime"
                             >
-                            <!-- <vue-timepicker format="HH:mm" v-model="order.tripStartTime"></vue-timepicker> -->
                         </div>
                         <div class="col-xs-6">
                             <label class="form-control-label">موعد إنتهاء الرحلة</label>
@@ -67,7 +66,6 @@
                                 placeholder="برجاء إختبار تاريخ و توقيت إنتهاء الرحلة"
                                 data-timeType="tripEndTime"
                                 >
-                            <!-- <vue-timepicker format="HH:mm" ></vue-timepicker> -->
                         </div>
                     </div>
                     <div class="form-group">
@@ -86,7 +84,7 @@
                         <label class="form-control-label">العميل</label>
 
                         <select class="selectClient" name="state" v-if="clients.length > 0" v-model="order.customer">
-                            <option :value="user.id" v-for="user in clients">{{user.fullName}}</option>
+                            <option :value="user.id" v-for="user in clients" :key="user.id">{{user.fullName}}</option>
                         </select>
 
                         <div class="preloader pl-size-xs ltr" v-else>
@@ -120,115 +118,127 @@
 </template>
 
 <script>
-import VueTimepicker from 'vue2-timepicker'
+import VueTimepicker from "vue2-timepicker";
 
 export default {
-    name: 'new-order',
-    components: {
-        VueTimepicker
-    },
-    data () {
-        return {
-            current: {
-                center: {lat:29.310297, lng:30.845376},
-                position: {lat:29.310297, lng:30.845376},
-                showMarker: false
-            },
-            tripStart: {
-                showMarker: false,
-                position: {lat:29.310297, lng:30.845376},
-            },
-            tripEnd: {
-                showMarker: false,
-                position: {lat:29.310297, lng:30.845376},
-            },
-            clients: [],
-            order: {
-                tripStartTime: 0,
-                tripEndTime: 0,
-                customer: {id: null},
-                orderLocation: {},
-                fromLocation: {},
-                toLocation: {},
-            }
-        }
-    },
-    mounted(){
-        this.getCurrentLocation()
-        this.getClients()
+  name: "new-order",
+  components: {
+    VueTimepicker
+  },
+  data() {
+    return {
+      current: {
+        center: { lat: 29.310297, lng: 30.845376 },
+        position: { lat: 29.310297, lng: 30.845376 },
+        showMarker: false
+      },
+      tripStart: {
+        showMarker: false,
+        position: { lat: 29.310297, lng: 30.845376 }
+      },
+      tripEnd: {
+        showMarker: false,
+        position: { lat: 29.310297, lng: 30.845376 }
+      },
+      clients: [],
+      order: {
+        tripStartTime: 0,
+        tripEndTime: 0,
+        customer: { id: null },
+        orderLocation: {},
+        fromLocation: {},
+        toLocation: {}
+      }
+    };
+  },
+  mounted() {
+    this.getCurrentLocation();
+    this.getClients();
 
-        // this.$get('/api/orders')
-        //     .then(res => {
-        //         console.log(res);
-        //     }).catch(err => {
-        //         console.log(err);
-        //     })
+    // this.$get('/api/orders')
+    //     .then(res => {
+    //         console.log(res);
+    //     }).catch(err => {
+    //         console.log(err);
+    //     })
 
-        setTimeout(() => {
-            //Datetimepicker plugin
-            let el = $('.datetimepicker')
-            el.bootstrapMaterialDatePicker({
-                format: 'dddd DD MMMM YYYY - HH:mm',
-                clearButton: false,
-                weekStart: 1
+    setTimeout(() => {
+      //Datetimepicker plugin
+      let el = $(".datetimepicker");
+      el.bootstrapMaterialDatePicker({
+        format: "dddd DD MMMM YYYY - HH:mm",
+        clearButton: false,
+        weekStart: 1
+      });
+      el.on("change", (e, date) => {
+        this.order[e.currentTarget.dataset.timetype] = date.unix();
+      });
+    }, 100);
+  },
+  methods: {
+    save() {
+      let obj = this.$copy(this.order);
+      obj.orderTime = Math.round(+new Date().getTime() / 1000);
+      obj.orderLocation.coordinates = [
+        this.current.position.lat,
+        this.current.position.lng
+      ];
+      obj.fromLocation.coordinates = [
+        this.tripStart.position.lat,
+        this.tripStart.position.lng
+      ];
+      obj.toLocation.coordinates = [
+        this.tripEnd.position.lat,
+        this.tripEnd.position.lng
+      ];
+
+      obj.paymentMethod = parseInt(obj.paymentMethod);
+
+      this.$post("/api/orders", obj)
+        .then(res => {
+          console.log(res);
+          this.$router.push("/customers/all-orders");
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    getClients() {
+      this.$get("/api/customers")
+        .then(res => {
+          this.clients = res.rs;
+          setTimeout(() => {
+            $(".selectClient").select2();
+            $(".selectClient").on("select2:select", e => {
+              // On client select
+              this.order.customer.id = e.target.value;
             });
-            el.on('change' , (e, date) => {
-                this.order[e.currentTarget.dataset.timetype] = date.unix()
-            })
-        }, 100)
+          }, 100);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
-    methods: {
-        save(){
-            let obj = this.$copy(this.order);
-            obj.orderTime = Math.round(+new Date().getTime() / 1000);
-            obj.orderLocation.coordinates = [this.current.position.lat, this.current.position.lng];
-            obj.fromLocation.coordinates = [this.tripStart.position.lat, this.tripStart.position.lng];
-            obj.toLocation.coordinates = [this.tripEnd.position.lat, this.tripEnd.position.lng];
-
-            obj.paymentMethod = parseInt(obj.paymentMethod);
-
-            this.$post('/api/orders', obj)
-                .then((res) => {
-                    console.log(res);
-                }).catch(err => {
-                    console.log(err);
-                })
-        },
-        getClients(){
-            this.$get('/api/customers')
-                .then(res => {
-                    this.clients = res.rs
-                    setTimeout(() => {
-                        $('.selectClient').select2();
-                        $('.selectClient').on('select2:select', (e) => {
-                            // On client select
-                            this.order.customer.id = e.target.value
-                        });
-                    }, 100)
-                }).catch(err => {
-                    console.log(err);
-                })
-        },
-        getCurrentLocation(){
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((position) => {
-                    this.current.showMarker = true
-                    this.current.position.lat = position.coords.latitude
-                    this.current.position.lng = position.coords.longitude
-                    this.current.center.lat = position.coords.latitude
-                    this.current.center.lng = position.coords.longitude
-                });
-            } else {
-                x.innerHTML = "Geolocation is not supported by this browser.";
-            }
-        },
-        mapClicked(e, type){
-            this[type].showMarker = true
-            this[type].position.lat = e.latLng.lat()
-            this[type].position.lng = e.latLng.lng()
-        }
+    getCurrentLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          this.current.showMarker = true;
+          this.current.position.lat = position.coords.latitude;
+          this.current.position.lng = position.coords.longitude;
+          this.current.center.lat = position.coords.latitude;
+          this.current.center.lng = position.coords.longitude;
+        });
+      } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    },
+    mapClicked(e, type) {
+      this[type].showMarker = true;
+      this[type].position.lat = e.latLng.lat();
+      this[type].position.lng = e.latLng.lng();
     }
-}
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

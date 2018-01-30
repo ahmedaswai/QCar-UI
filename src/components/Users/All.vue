@@ -151,67 +151,75 @@
 
 <script>
 export default {
-    name: 'all-clients',
-    data () {
-        return {
-            users: [],
-            newUser: {
-               userName: '',
-               password: '',
-               status: false,
-               userType: 0, // Admin(0),Owner(1),Driver(2),Customer(3)
-               loginName: ''
-            },
-            selectTotDeleteItems: []
-        }
+  name: "all-clients",
+  data() {
+    return {
+      users: [],
+      newUser: {
+        userName: "",
+        password: "",
+        status: false,
+        userType: 0, // Admin(0),Owner(1),Driver(2),Customer(3)
+        loginName: ""
+      },
+      selectTotDeleteItems: []
+    };
+  },
+  mounted() {
+    this.getData();
+  },
+  methods: {
+    getData() {
+      this.$get("/api/users")
+        .then(res => {
+          console.log(res);
+          this.users = res.rs;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
-    mounted(){
-        this.getData();
+    addToBulkDelete(e, id) {
+      console.log();
+      if (this.selectTotDeleteItems.indexOf(id) === -1) {
+        this.selectTotDeleteItems.push(id);
+      } else {
+        this.selectTotDeleteItems.splice(
+          this.selectTotDeleteItems.indexOf(id),
+          1
+        );
+      }
+      console.log(this.selectTotDeleteItems);
     },
-    methods: {
-        getData(){
-            this.$get('/api/users')
-                .then(res => {
-                    console.log(res);
-                    this.users = res.rs
-                }).catch(err => {
-                    console.log(err);
-                })
-        },
-        addToBulkDelete(e, id){
-            console.log();
-            if (this.selectTotDeleteItems.indexOf(id) === -1) {
-                this.selectTotDeleteItems.push(id);
-            }else{
-                this.selectTotDeleteItems.splice(this.selectTotDeleteItems.indexOf(id), 1)
-            }
-            console.log(this.selectTotDeleteItems);
-        },
-        deleteSelected(){
-            this.$deleteBulk('/api/drivers/delete/bulk', [...this.selectTotDeleteItems])
-                .then(res => {
-                    console.log(res);
-                    $('.modal').modal('hide')
-                    this.getData();
-                }).catch(err => {
-                    console.log(err);
-                })
-        },
-        save(){
-            // console.log(this.newUser);
-            this.$post('/api/users', this.newUser)
-                .then((res) => {
-                    console.log(res);
-                    if(res.sc === 200){
-                        $('.modal').modal('hide')
-                        this.getData();
-                    }
-                }).catch((err) => {
-                    console.log(err);
-                })
-        }
+    deleteSelected() {
+      this.$deleteBulk("/api/drivers/delete/bulk", [
+        ...this.selectTotDeleteItems
+      ])
+        .then(res => {
+          console.log(res);
+          $(".modal").modal("hide");
+          this.getData();
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    save() {
+      // console.log(this.newUser);
+      this.$post("/api/users", this.newUser)
+        .then(res => {
+          console.log(res);
+          if (res.sc === 200) {
+            $(".modal").modal("hide");
+            this.getData();
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
-}
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

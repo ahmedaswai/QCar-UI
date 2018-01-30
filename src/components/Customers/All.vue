@@ -278,104 +278,118 @@
 
 <script>
 export default {
-    name: 'all-clients',
-    data () {
-        return {
-            clients: [],
-            newCustomer: {
-                fullName: 'محمد حسنين',
-                mobileNumber1: '01000000000',
-                mobileNumber2: '01000000001',
-                homePhoneNumber: '084123123',
-                homeAddress: 'حي الجامعة - الفيوم',
-                inTrip: false,
-                city: 0,
-                notes: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-                status: false,
-                credit: 10,
-                currentLocation: {}
-            },
-            customerDetailsObj: {},
-            marker: {
-                lat:29.310297,
-                lng:30.845376
-            },
-            showMarker: false,
-            selectTotDeleteItems: []
-        }
-    },
-    mounted(){
-        this.getData()
+  name: "all-clients",
+  data() {
+    return {
+      clients: [],
+      newCustomer: {
+        fullName: "محمد حسنين",
+        mobileNumber1: "01000000000",
+        mobileNumber2: "01000000001",
+        homePhoneNumber: "084123123",
+        homeAddress: "حي الجامعة - الفيوم",
+        inTrip: false,
+        city: 0,
+        notes:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+        status: false,
+        credit: 10,
+        currentLocation: {}
+      },
+      customerDetailsObj: {},
+      marker: {
+        lat: 29.310297,
+        lng: 30.845376
+      },
+      showMarker: false,
+      selectTotDeleteItems: []
+    };
+  },
+  mounted() {
+    this.getData();
 
-        setTimeout(() => {
-            $('.modal').on('shown.bs.modal', () => {
-                console.log('openning modal');
-                this.$gmapDefaultResizeBus.$emit('resize')
-            })
-        }, 100)
+    setTimeout(() => {
+      $(".modal").on("shown.bs.modal", () => {
+        console.log("openning modal");
+        this.$gmapDefaultResizeBus.$emit("resize");
+      });
+    }, 100);
+  },
+  methods: {
+    getData() {
+      this.$get("/api/customers")
+        .then(res => {
+          console.log(res);
+          this.clients = res.rs;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
-    methods: {
-        getData(){
-            this.$get('/api/customers')
-                .then(res => {
-                    console.log(res);
-                    this.clients = res.rs
-                }).catch(err => {
-                    console.log(err);
-                })
-        },
-        addToBulkDelete(e, id){
-            console.log();
-            if (this.selectTotDeleteItems.indexOf(id) === -1) {
-                this.selectTotDeleteItems.push(id);
-            }else{
-                this.selectTotDeleteItems.splice(this.selectTotDeleteItems.indexOf(id), 1)
-            }
-            console.log(this.selectTotDeleteItems);
-        },
-        deleteSelected(){
-            this.$deleteBulk('/api/clients/delete/bulk', [...this.selectTotDeleteItems])
-                .then(res => {
-                    console.log(res);
-                    $('.modal').modal('hide')
-                    this.getData();
-                }).catch(err => {
-                    console.log(err);
-                })
-        },
-        save(){
-            this.newCustomer.currentLocation.coordinates = [this.marker.lat, this.marker.lng]
+    addToBulkDelete(e, id) {
+      console.log();
+      if (this.selectTotDeleteItems.indexOf(id) === -1) {
+        this.selectTotDeleteItems.push(id);
+      } else {
+        this.selectTotDeleteItems.splice(
+          this.selectTotDeleteItems.indexOf(id),
+          1
+        );
+      }
+      console.log(this.selectTotDeleteItems);
+    },
+    deleteSelected() {
+      this.$deleteBulk("/api/clients/delete/bulk", [
+        ...this.selectTotDeleteItems
+      ])
+        .then(res => {
+          console.log(res);
+          $(".modal").modal("hide");
+          this.getData();
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    save() {
+      this.newCustomer.currentLocation.coordinates = [
+        this.marker.lat,
+        this.marker.lng
+      ];
 
-            this.$post('/api/customers', this.newCustomer)
-                .then((res) => {
-                    console.log(res);
-                    if(res.sc === 200){
-                        this.getData()
-                        $('.modal').modal('hide')
-                    }
-                }).catch((err) => {
-                    console.log(err);
-                })
-        },
-        mapClicked(e){
-            this.showMarker = true;
-            this.marker.lat = e.latLng.lat()
-            this.marker.lng = e.latLng.lng()
-        },
-        customerDetails(user){
-            console.log(this.customerDetails, user);
-            console.log(this.customerDetails);
-            user.birthDate = this.getDateFormated(user.birthDate)
-            user.carLicenseExpiryDate = this.getDateFormated(user.carLicenseExpiryDate)
-            console.log(user.birthDate, user.carLicenseExpiryDate);
-            this.customerDetailsObj = user;
-        },
-        getDateFormated(date){
-            let d = new Date(date);
-            return `${d.getFullYear()}-${d.getMonth()}-${d.getDay()}`
-        }
+      this.$post("/api/customers", this.newCustomer)
+        .then(res => {
+          console.log(res);
+          if (res.sc === 200) {
+            this.getData();
+            $(".modal").modal("hide");
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    mapClicked(e) {
+      this.showMarker = true;
+      this.marker.lat = e.latLng.lat();
+      this.marker.lng = e.latLng.lng();
+    },
+    customerDetails(user) {
+      console.log(this.customerDetails, user);
+      console.log(this.customerDetails);
+      user.birthDate = this.getDateFormated(user.birthDate);
+      user.carLicenseExpiryDate = this.getDateFormated(
+        user.carLicenseExpiryDate
+      );
+      console.log(user.birthDate, user.carLicenseExpiryDate);
+      this.customerDetailsObj = user;
+    },
+    getDateFormated(date) {
+      let d = new Date(date);
+      return `${d.getFullYear()}-${d.getMonth()}-${d.getDay()}`;
     }
-}
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -20,11 +20,6 @@ Vue.use(VueGoogleMaps, {
 })
 
 // API url
-// if (location.hostname === "localhost" || location.hostname === "127.0.0.1"){
-//     window.api = 'http://localhost:8080';
-// }else{
-//     window.api = 'http://52.232.114.239:8080';
-// }
 window.api = 'http://52.232.114.239:8080';
 
 
@@ -35,10 +30,12 @@ Vue.prototype.$post = helpers.post
 Vue.prototype.$get = helpers.get
 Vue.prototype.$deleteBulk = helpers.deleteBulk
 Vue.prototype.$copy = helpers.copy
+Vue.prototype.$makeID = helpers.makeID
 
 
 // Global Filters
 Vue.filter('userType', helpers.userType);
+Vue.filter('formatDate', helpers.formatDate);
 
 // Timer picker
 // Vue.use(VueTimepicker)

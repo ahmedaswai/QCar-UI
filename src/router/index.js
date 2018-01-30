@@ -5,6 +5,7 @@ import Dashboard from '@/components/Dashboard'
 import AllUsers from '@/components/Users/All'
 import AllDrivers from '@/components/Drivers/All'
 import AllCustomers from '@/components/Customers/All'
+import AllOrders from '@/components/Customers/AllOrders'
 import NewOrder from '@/components/Customers/NewOrder'
 
 Vue.use(Router)
@@ -44,6 +45,10 @@ export default new Router({
             path: '/customers/new-order',
             name: 'NewOrder',
             component: NewOrder
+        },{
+            path: '/customers/all-orders',
+            name: 'AllOrders',
+            component: AllOrders
         },
     ]
 })

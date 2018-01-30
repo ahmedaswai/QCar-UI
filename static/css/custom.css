@@ -85,9 +85,43 @@
 .dtp{
     direction: ltr !important
 }
-
-
-
+.table-search {
+    position: relative;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+.table-search h5{
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.table-search label{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.table-search input{
+    padding: 3px 5px;
+    /* margin-right: 10px; */
+    width: 50%;
+    /* border: 0;
+    padding: 5px 10px;
+    font-size: 18px;
+    padding-right: 30px;
+    border-bottom: 1px solid #ddd; */
+}
+.table-search i{
+    /* position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    opacity: .9 */
+}
+.transparent-card{
+    background-color: transparent;
+    box-shadow: none;
+}
 
 
 

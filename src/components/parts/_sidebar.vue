@@ -60,6 +60,9 @@
                             <router-link :to="{path: '/customers/all'}">بيانات العملاء</router-link>
                         </li>
                         <li>
+                            <router-link :to="{path: '/customers/all-orders'}">جميع طلبات العملاء</router-link>
+                        </li>
+                        <li>
                             <router-link :to="{path: '/customers/new-order'}">إنشاء طلب جديد</router-link>
                         </li>
                     </ul>
