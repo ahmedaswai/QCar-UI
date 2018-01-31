@@ -313,6 +313,9 @@ export default {
         .then(res => {
           console.log(res);
           this.orders = res.rs;
+          setTimeout(() => {
+            this.$initTable();
+          }, 100);
         })
         .catch(err => {
           console.log(err);

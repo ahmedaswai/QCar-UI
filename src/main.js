@@ -31,6 +31,7 @@ Vue.prototype.$get = helpers.get
 Vue.prototype.$deleteBulk = helpers.deleteBulk
 Vue.prototype.$copy = helpers.copy
 Vue.prototype.$makeID = helpers.makeID
+Vue.prototype.$initTable = helpers.initTable
 
 
 // Global Filters

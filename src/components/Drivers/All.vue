@@ -387,6 +387,9 @@ export default {
         .then(res => {
           console.log(res);
           this.drivers = res.rs;
+          setTimeout(() => {
+            this.$initTable();
+          }, 100);
         })
         .catch(err => {
           console.log(err);

@@ -35,7 +35,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(user, i) in users">
+                            <tr v-for="(user, i) in users" :key="user.id">
                                 <th scope="row">{{i + 1}}</th>
                                 <td>{{user.userName}}</td>
                                 <td>{{user.loginName}}</td>
@@ -174,6 +174,9 @@ export default {
         .then(res => {
           console.log(res);
           this.users = res.rs;
+          setTimeout(() => {
+            this.$initTable();
+          }, 100);
         })
         .catch(err => {
           console.log(err);

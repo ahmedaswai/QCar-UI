@@ -70,6 +70,30 @@ export const helpers = {
     makeID: function () {
         return Math.random().toString(36).substr(2, 9);
     },
+    initTable: function () {
+        $("table.table").DataTable({
+            responsive: true,
+            language: {
+                lengthMenu: "عرض _MENU_ طلب في كل صفحة",
+                zeroRecords: "لا يوجد طلب مطابق",
+                info: "صفحة رقم _PAGE_ من _PAGES_",
+                infoEmpty: "لا يوجد طلبات متاحة",
+                infoFiltered: "(filtered from _MAX_ total records)",
+                emptyTable: "لا يوجد بيانات متاحة",
+                infoPostFix: "",
+                thousands: ",",
+                loadingRecords: "جاري التحميل ...",
+                processing: "جاري المعالجة ...",
+                search: "بحث:",
+                paginate: {
+                    first: "الأول",
+                    last: "الأخير",
+                    next: "التالي",
+                    previous: "السابق"
+                }
+            }
+        });
+    },
 
 
     // Filters

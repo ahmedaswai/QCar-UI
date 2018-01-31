@@ -321,6 +321,9 @@ export default {
         .then(res => {
           console.log(res);
           this.clients = res.rs;
+          setTimeout(() => {
+            this.$initTable();
+          }, 100);
         })
         .catch(err => {
           console.log(err);
