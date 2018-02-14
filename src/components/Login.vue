@@ -52,7 +52,7 @@ export default {
   data() {
     return {
       username: "bmind",
-      password: "123",
+      password: "sss",
       loading: false
     };
   },

@@ -25,18 +25,18 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                            <th>#</th>
-                            <th>إسم السائق</th>
-                            <th>أرقام الهواتف</th>
-                            <th>الموقع</th>
-                            <th class="text-center">حالة السائق</th>
-                            <th>مسح</th>
-                            <th>تفاصيل</th>
-                            <th>تعديل</th>
+                                <th>#</th>
+                                <th>إسم السائق</th>
+                                <th>أرقام الهواتف</th>
+                                <th>الموقع</th>
+                                <th class="text-center">حالة السائق</th>
+                                <th>مسح</th>
+                                <th>تفاصيل</th>
+                                <th>تعديل</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(user, i) in drivers">
+                            <tr v-for="(user, i) in drivers" :key="user.id">
                                 <th scope="row">{{i + 1}}</th>
                                 <td>{{user.fullName || 'غير محدد'}}</td>
                                 <td>{{user.mobileNumber1}} - {{user.mobileNumber2}} - {{user.homePhoneNumber}}</td>

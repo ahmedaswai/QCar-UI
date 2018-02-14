@@ -71,7 +71,7 @@ export const helpers = {
         return Math.random().toString(36).substr(2, 9);
     },
     initTable: function () {
-        $("table.table").DataTable({
+        $(".table-wrapper.card table.table").DataTable({
             responsive: true,
             language: {
                 lengthMenu: "عرض _MENU_ طلب في كل صفحة",
