@@ -249,7 +249,7 @@
                         <div class="col-xs-4 show-info">
                             <div class="">
                                 <label class="form-control-label">إسم السائق</label>
-                                <input type="text" class="form-control" disabled v-model="driverDetailsObj.fullName || 'غير محدد'">
+                                <input type="text" class="form-control" disabled v-model="driverDetailsObj.fullName">
                             </div>
                         </div>
                         <div class="col-xs-4 show-info">
@@ -444,13 +444,10 @@ export default {
       this.marker.lng = e.latLng.lng();
     },
     driverDetails(user) {
-      console.log(this.driverDetails, user);
-      console.log(this.driverDetails);
       user.birthDate = this.getDateFormated(user.birthDate);
       user.carLicenseExpiryDate = this.getDateFormated(
         user.carLicenseExpiryDate
       );
-      console.log(user.birthDate, user.carLicenseExpiryDate);
       this.driverDetailsObj = user;
     },
     getDateFormated(date) {

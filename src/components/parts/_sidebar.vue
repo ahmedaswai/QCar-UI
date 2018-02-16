@@ -67,6 +67,18 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">compare_arrows</i>
+                        <span>إدارة الرحلات</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <router-link :to="{path: '/trips/all'}">جميع الرحلات</router-link>
+                        </li>
+                    </ul>
+                </li>
+                
             </ul>
         </div>
         <!-- #Menu -->
@@ -76,16 +88,12 @@
 
 <script>
 export default {
-    name: 'sidebar',
-    data () {
-        return {
-
-        }
-    },
-    mounted(){
-
-    }
-}
+  name: "sidebar",
+  data() {
+    return {};
+  },
+  mounted() {}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

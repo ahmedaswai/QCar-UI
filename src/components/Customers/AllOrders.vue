@@ -48,7 +48,7 @@
                                 <th>أرقام الهواتف</th>
                                 <th class="text-center">توقيت الطلب</th>
                                 <th>مسح</th>
-                                <th>تفاصيل</th>
+                                <!-- <th>تفاصيل</th> -->
                                 <th class="text-center">أضف رحلة للطلب</th>
                                 </tr>
                             </thead>
@@ -68,7 +68,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td>
+                                    <!-- <td>
                                         <a
                                             data-toggle="modal"
                                             data-target="#details"
@@ -77,7 +77,7 @@
                                         >
                                             <i class="material-icons">list</i>
                                         </a>
-                                    </td>
+                                    </td> -->
                                     <td class="text-center">
                                         <a
                                             data-toggle="modal"
@@ -134,6 +134,25 @@
             </div>
         </div><!--/details-->
 
+        <!-- tripCost -->
+        <div id="tripCost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+            <div role="document" class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 id="exampleModalLabel" class="modal-title">تكاليف الرحلة</h4>
+                        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <div class="modal-body text-right row">
+                        
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" class="btn btn-secondary">إغلاق</button>
+                    </div>
+                </div>
+            </div>
+        </div><!--/tripCost-->
+
 
         <addTrip :orderForNewTrip="orderForNewTrip"></addTrip>
 
@@ -158,7 +177,8 @@ export default {
       orders: [],
       selectTotDeleteItems: [],
       searching: false,
-      orderForNewTrip: {}
+      orderForNewTrip: {},
+      tripCostObj: {}
     };
   },
   mounted() {
